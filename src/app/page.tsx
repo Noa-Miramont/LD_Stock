@@ -99,7 +99,7 @@ export default function Home() {
             { label: "À partir de 200€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg" },
             { label: "Sur devis", title: "Solution sur mesure", description: "Adaptée à vos besoins", image: "/img/Sur_mesure.png" },
           ].map(item => (
-            <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white">
+            <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg">
               <Image
                 src={item.image}
                 alt={item.title}
