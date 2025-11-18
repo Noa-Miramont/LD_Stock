@@ -22,11 +22,11 @@ export default function Home() {
               Vente et location de solutions modulaires pour professionnels et particuliers.<br />Stock permanent, livraison rapide dans toute la France.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-transparent border border-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-white" href="#contact">
+            <a className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-transparent border border-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-white" href="/contact">
                 <img src="/icons/Phone_white.svg" alt="" />
                 Nous contacter
             </a>
-            <a className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-[#FF8905] px-6 py-3 text-base font-bold tracking-wide text-white transition" href="#contact">
+            <a className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-[#FF8905] px-6 py-3 text-base font-bold tracking-wide text-white transition" href="/catalogue">
               Voir notre catalogue
             </a>
             </div>
@@ -95,29 +95,31 @@ export default function Home() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {[
-            { label: "À partir de 200€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png" },
-            { label: "À partir de 200€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg" },
-            { label: "Sur devis", title: "Solution sur mesure", description: "Adaptée à vos besoins", image: "/img/Sur_mesure.png" },
+            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"catalogue?type=conteneur"},
+            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"catalogue?type=bungalow" },
+            { label: "Sur devis", title: "Solution sur mesure", description: "Adaptée à vos besoins", image: "/img/Sur_mesure.png", link:"/contact" },
           ].map(item => (
-            <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={680}
-                height={520}
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/60 to-transparent" />
-              <div className="absolute inset-x-0 top-6 flex justify-end px-6">
-                <span className="rounded-full bg-[#FF8905] px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">{item.label}</span>
-              </div>
-              <div className="absolute inset-x-0 bottom-0 px-6 pb-8 pt-16">
-                <h3 className="RedHat text-2xl font-semibold">{item.title}</h3>
-                <p className="mt-3 text-sm text-neutral-200">{item.description}</p>
-                <a className="mt-6 inline-flex items-center text-sm font-semibold text-accent-300 transition hover:text-accent-200" href="#contact">
-                  Découvrir →
-                </a>
-              </div>
+            <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer ">
+              <a href={item.link}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={680}
+                  height={520}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/60 to-transparent" />
+                <div className="absolute inset-x-0 top-6 flex justify-end px-6">
+                  <span className="rounded-full bg-[#FF8905] px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">{item.label}</span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 px-6 pb-8">
+                  <h3 className="RedHat text-2xl font-semibold">{item.title}</h3>
+                  <p className="mt-1 text-sm text-neutral-200">{item.description}</p>
+                  <p className="mt-6 inline-flex items-center text-sm font-semibold text-accent-300 transition hover:text-accent-200">
+                    Découvrir →
+                  </p>
+                </div>
+              </a>
             </article>
           ))}
         </div>
@@ -137,9 +139,9 @@ export default function Home() {
                 />
               </div>
               <div className="px-6 py-6 mt-6">
-                <h3 className="Lato text-lg font-semibold text-primary-900">{item.title}</h3>
-                <p className="mt-3 text-sm text-neutral-500">{item.description}</p>
-                <a className="mt-3 inline-flex items-center rounded-md bg-black px-3 py-2 text-xs font-semibold  tracking-wide text-white transition hover:bg-primary-800" href="#contact">
+                <h3 className="Lato text-xl font-semibold text-primary-900">{item.title}</h3>
+                <p className="mt-2 text-sm text-neutral-500">{item.description}</p>
+                <a className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold  tracking-wide text-white transition hover:bg-primary-800" href="#contact">
                   Découvrir
                 </a>
               </div>
@@ -157,10 +159,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <a className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-[#FF8905] transition hover:bg-" href="#contact">
-              <img src="/icons/Phone.svg" alt="" />
+              <img src="/icons/Phone.svg" alt="/contact" />
               Nous contacter
             </a>
-            <a className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]" href="#catalogue">
+            <a className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]" href="/catalogue">
               Voir notre catalogue
             </a>
           </div>
