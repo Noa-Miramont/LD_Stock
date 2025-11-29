@@ -1,0 +1,67 @@
+╔═══════════════════════════════════════════════════════════════╗
+║     BACKEND FORM TEMPLATE - DÉMARRAGE RAPIDE                 ║
+╚═══════════════════════════════════════════════════════════════╝
+
+🚀 INSTALLATION EN 3 ÉTAPES :
+
+1️⃣  Installer les dépendances
+    npm install
+
+2️⃣  Configuration (mode interactif)
+    npm run setup
+    
+    OU copier manuellement :
+    cp env.example .env
+    (puis éditer le fichier .env)
+
+3️⃣  Démarrer le serveur
+    npm run dev
+
+✅ Le serveur démarre sur http://localhost:3001
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📧 CONFIGURATION GMAIL (OBLIGATOIRE)
+
+Pour l'envoi d'emails, vous devez configurer un mot de passe 
+d'application Gmail :
+
+1. Aller sur myaccount.google.com
+2. Sécurité → Authentification à 2 facteurs (l'activer)
+3. Sécurité → Mots de passe d'application
+4. Créer un mot de passe pour votre application
+5. Copier le mot de passe dans .env (GMAIL_PASSWORD)
+
+💡 Conseil : Utilisez le même Gmail pour l'envoi ET la réception
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧪 VÉRIFICATION
+
+Tester l'API :
+    npm test
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION COMPLÈTE : Voir README.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ PERSONNALISATION
+
+Ce template est prêt à l'emploi. Pour l'adapter à votre projet :
+
+1. Modifier les informations dans .env (nom entreprise, etc.)
+2. Adapter les types de demandes dans controllers/formController.js
+3. Personnaliser les templates d'email dans config/mailer.js
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 SCRIPTS DISPONIBLES
+
+npm start       - Démarrer en mode production
+npm run dev     - Démarrer en mode développement (auto-reload)
+npm test        - Tester l'API
+npm run setup   - Configuration interactive
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
