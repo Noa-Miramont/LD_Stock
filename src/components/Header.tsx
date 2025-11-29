@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Footer() {
+export default function Header() {
   return (
     <header className="fixed w-full flex flex-row items-center justify-between bg-white px-24 py-4 z-100">
         <Image className='w-[120px] h-auto' src="/logo/logo.png" width={250} height={250} alt="logo" />
