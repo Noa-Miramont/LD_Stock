@@ -1,43 +1,91 @@
-export default function Header() {
+export default function Footer() {
     return (
-        <footer className="flex flex-col justify-center items-center bg-black text-neutral-200 px-[80px] pt-[70px] pb-[30px] bg-radial-[at_80%_0%] from-[#181818] to-black" aria-labelledby="pied-de-page">
-            <div className="flex flex-row justify-between w-full ">
-                <div className="w-2/3">
-                    <h5 id="pied-de-page" className="RedHat text-6xl text-white uppercase">L’espace à <br />votre rythme</h5>
-                </div>
-
-                <div className="flex flex-row justify-between w-full">
-                    <nav aria-label="Navigation pied de page">
-                        <h3 className="Inter text-sm font-semibold uppercase tracking-wide text-white">Navigation</h3>
-                        <ul className="Inter mt-4 space-y-3 text-sm font-extralight">
-                            <li><a className="transition hover:text-accent-300" href="/">Accueil</a></li>
-                            <li><a className="transition hover:text-accent-300" href="/catalogue">Catalogue</a></li>
-                            <li><a className="transition hover:text-accent-300" href="/">Contact</a></li>
-                        </ul>
-                    </nav>
+        <footer
+            className="bg-black text-white px-6 sm:px-10 lg:px-16 xl:px-20 pt-16 pb-8"
+            aria-labelledby="pied-de-page"
+        >
+            <div className="max-w-[1400px] mx-auto">
+                {/* Section principale */}
+                <div className="flex flex-col justify-between lg:flex-row gap-10 lg:gap-16 xl:gap-20 items-start mb-10 lg:mb-12">
+                    {/* Titre principal */}
                     <div>
-                    <h3 className="RedHat text-sm font-semibold uppercase tracking-wide text-white">Contact</h3>
-                    <ul className="Inter mt-4 space-y-3 text-sm font-extralight">
-                        <li><span className="font-normal">Location</span> +33 6 98 24 86 90</li>
-                        <li><span className="font-normal">Achat</span> +33 6 76 81 94 56</li>
-                        <li>ldstock@orange.fr</li>
-                    </ul>
+                        <h5
+                            id="pied-de-page"
+                            className="RedHat text-[7.2vw] lg:text-[3.75vw] xl:text-[3.75vw] uppercase leading-tight tracking-tight"
+                        >
+                            L'ESPACE À<br className="hidden xl:inline" />
+                            VOTRE RYTHME
+                        </h5>
                     </div>
-                    <div>
-                    <h3 className="RedHat text-sm font-semibold uppercase tracking-wide text-white">Horaires</h3>
-                    <ul className="Inter mt-4 space-y-3 text-sm font-extralight">
-                        <li>24h/24 et 7j/7 sur site</li>
-                        <li>602 route des Palombes<br />33141 Villegouge</li>
-                    </ul>
 
+                    <div className="flex flex-row justify-between w-full lg:w-auto">
+                        {/* Navigation */}
+                        <nav aria-label="Navigation pied de page" className="min-w-[160px]">
+                            <h3 className="text-base font-medium mb-4 lg:mb-6">Navigation</h3>
+                            <ul className="space-y-3 text-sm text-neutral-300">
+                                <li>
+                                    <a className="transition hover:text-white" href="/">
+                                        Accueil
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="transition hover:text-white" href="/catalogue">
+                                        Catalogue
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="transition hover:text-white" href="/contact">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        {/* Contact */}
+                        <div className="min-w-[240px]">
+                            <h3 className="text-base font-medium mb-4 lg:mb-6">Contact</h3>
+                            <ul className="space-y-3 text-sm text-neutral-300">
+                                <li>
+                                    <span className="font-normal text-white">Location</span> +33 6 98 24 86 90
+                                </li>
+                                <li>
+                                    <span className="font-normal text-white">Achat</span> +33 6 76 81 94 56
+                                </li>
+                                <li>ldstock@orange.fr</li>
+                            </ul>
+                        </div>
+
+                    {/* Horaires */}
+                    <div className="hidden lg:block min-w-[200px]">
+                        <h3 className="text-base font-medium mb-4 lg:mb-6">Horaires</h3>
+                        <ul className="space-y-3 text-sm text-neutral-300">
+                            <li>24h/24 et 7j/7 sur site</li>
+                            <li>
+                                602 route des Palombes<br />
+                                33141 Villegouge
+                            </li>
+                        </ul>
+                    </div>
+                  </div>
                 </div>
 
+                {/* Séparateur */}
+                <div className="w-full h-px bg-neutral-700 mb-6" />
+
+                {/* Copyright */}
+                <div className="flex flex-col justify-center items-center gap-1">
+                    <p className="RedHat text-[14px] md:text-[16px]">© {new Date().getFullYear()} LD Stock. Tous droits réservés.</p>
+                    <p className="RedHat text-[12px] md:text-[16px]">
+                        Designed and dev by{" "}
+                        <a 
+                            href="https://www.noamiramont.com/" 
+                            className="pointer-cursor hover:underline"
+                        >
+                            Noa Miramont
+                        </a>
+                    </p>
                 </div>
             </div>
-
-                <div className="w-full h-px bg-white opacity-40 mt-8"/>
-                <p className="Lato mt-4 text-xs text-neutral-400">© {new Date().getFullYear()} LD Stock. Tous droits réservés.</p>
-                <span className="Lato text-xs text-neutral-400">Designed and dev by <a href="https://www.noamiramont.com/" className="hover:underline cursor">Noa Miramont</a></span>
         </footer>
-    );
+    )
 }
