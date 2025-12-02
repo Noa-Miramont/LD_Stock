@@ -30,6 +30,7 @@ export default function Home() {
   const [selectedType, setSelectedType] = useState<ProductType | 'tous'>(getInitialType)
   const [selectedState, setSelectedState] = useState<ContainerState | 'tout'>(getInitialState)
   const [isInitialized, setIsInitialized] = useState(false)
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
   // Synchroniser avec l'URL au chargement initial (une seule fois)
   useEffect(() => {
@@ -110,79 +111,100 @@ export default function Home() {
   })
 
   return (
-    <main className="pt-12 px-10 lg:px-14  xl:px-24 bg-neutral-100">
+    <main className="pt-12 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-24 bg-neutral-100 overflow-x-hidden">
       <header className="flex flex-col justify-start gap-5">
         <h1 className="RedHat font-bold text-5xl uppercase">Notre catalogue</h1>
         <p className="Inter text-base text-[#727272]">Découvrez notre gamme complète de bungalows et conteneurs disponibles à la vente et à la location</p>
         
         {/* Filtres */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-3">
-          {/* Filtre par type */}
-          <div className="flex gap-1 bg-neutral-200 rounded-full p-1 w-full sm:w-fit overflow-x-auto sm:overflow-visible">
-            <button
-              onClick={() => setSelectedType('tous')}
-              className={`px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                selectedType === 'tous'
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-black hover:bg-neutral-300'
-              }`}
+        <div className="mt-3">
+          {/* Bouton pour ouvrir les filtres sur mobile */}
+          <button
+            onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+            className="sm:hidden w-full bg-neutral-200 rounded-full px-4 py-2.5 flex items-center justify-between text-sm font-medium"
+          >
+            <span>Filtres</span>
+            <svg
+              className={`w-5 h-5 transition-transform ${isFiltersOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              Tous les produits
-            </button>
-            <button
-              onClick={() => setSelectedType('conteneur')}
-              className={`px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                selectedType === 'conteneur'
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-black hover:bg-neutral-300'
-              }`}
-            >
-              Conteneurs
-            </button>
-            <button
-              onClick={() => setSelectedType('bungalow')}
-              className={`px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                selectedType === 'bungalow'
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-black hover:bg-neutral-300'
-              }`}
-            >
-              Bungalows
-            </button>
-          </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-          {/* Filtre par état */}
-          <div className="flex gap-1 bg-neutral-200 rounded-full p-1 w-full sm:w-fit overflow-x-auto sm:overflow-visible">
-            <button
-              onClick={() => setSelectedState('tout')}
-              className={`px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                selectedState === 'tout'
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-black hover:bg-neutral-300'
-              }`}
-            >
-              Tout
-            </button>
-            <button
-              onClick={() => setSelectedState('neuf')}
-              className={`px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                selectedState === 'neuf'
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-black hover:bg-neutral-300'
-              }`}
-            >
-              Neuf
-            </button>
-            <button
-              onClick={() => setSelectedState('occasion')}
-              className={`px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                selectedState === 'occasion'
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-black hover:bg-neutral-300'
-              }`}
-            >
-              Occasion
-            </button>
+          {/* Panneau de filtres */}
+          <div className={`${isFiltersOpen ? 'block' : 'hidden'} sm:block`}>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-3 sm:mt-0">
+              {/* Filtre par type */}
+              <div className="flex gap-1 bg-neutral-200 rounded-full p-1 w-full sm:w-fit overflow-x-auto sm:overflow-visible">
+                <button
+                  onClick={() => setSelectedType('tous')}
+                  className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
+                    selectedType === 'tous'
+                      ? 'bg-white text-black'
+                      : 'bg-transparent text-black hover:bg-neutral-300'
+                  }`}
+                >
+                  Tous les produits
+                </button>
+                <button
+                  onClick={() => setSelectedType('conteneur')}
+                  className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
+                    selectedType === 'conteneur'
+                      ? 'bg-white text-black'
+                      : 'bg-transparent text-black hover:bg-neutral-300'
+                  }`}
+                >
+                  Conteneurs
+                </button>
+                <button
+                  onClick={() => setSelectedType('bungalow')}
+                  className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
+                    selectedType === 'bungalow'
+                      ? 'bg-white text-black'
+                      : 'bg-transparent text-black hover:bg-neutral-300'
+                  }`}
+                >
+                  Bungalows
+                </button>
+              </div>
+
+              {/* Filtre par état */}
+              <div className="flex gap-1 bg-neutral-200 rounded-full p-1 w-full sm:w-fit overflow-x-auto sm:overflow-visible">
+                <button
+                  onClick={() => setSelectedState('tout')}
+                  className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
+                    selectedState === 'tout'
+                      ? 'bg-white text-black'
+                      : 'bg-transparent text-black hover:bg-neutral-300'
+                  }`}
+                >
+                  Tout
+                </button>
+                <button
+                  onClick={() => setSelectedState('neuf')}
+                  className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
+                    selectedState === 'neuf'
+                      ? 'bg-white text-black'
+                      : 'bg-transparent text-black hover:bg-neutral-300'
+                  }`}
+                >
+                  Neuf
+                </button>
+                <button
+                  onClick={() => setSelectedState('occasion')}
+                  className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 ${
+                    selectedState === 'occasion'
+                      ? 'bg-white text-black'
+                      : 'bg-transparent text-black hover:bg-neutral-300'
+                  }`}
+                >
+                  Occasion
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </header>

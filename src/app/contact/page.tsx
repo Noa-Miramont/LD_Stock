@@ -2,18 +2,18 @@ import Form from "../../components/ui/Form"
 
 export default function Header() {
     return (
-        <main className=" pt-32 px-20 bg-neutral-100 min-h-screen space-y-16">
+        <main className="pt-12 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
             <header className="flex flex-col justify-start gap-5">
-                <h1 className="RedHat font-bold text-5xl uppercase">Contactez-nous</h1>
+                <h1 className="RedHat font-bold text-3xl sm:text-4xl md:text-5xl uppercase">Contactez-nous</h1>
                 <p className="Inter text-base text-[#727272]">Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans votre projet</p>
            </header>
 
-        <div className="flex flex-row space-x-15 w-full">
-            <div className="w-2/3 mb-20">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-15 w-full">
+            <div className="w-full lg:w-2/3 mb-8 lg:mb-20">
                 <Form />
             </div>
 
-            <div className="space-y-12 w-1/3">
+            <div className="space-y-12 w-full lg:w-1/3">
                 <div className="flex flex-col justify-start rounded-2xl bg-white shadow-lg py-5 px-5 space-y-7">
                     <h3 className="poppins text-lg font-medium ">Information de contact</h3>
                     <div className="space-y-8">

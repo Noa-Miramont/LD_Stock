@@ -13,7 +13,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="relative flex flex-col justify-center items-between xl:flex-row gap-6 px-4 px-14 sm:px-18 pb-24 pt-18">
+        <div className="relative flex flex-col justify-center items-between xl:flex-row gap-6 px-4 sm:px-10 md:px-14 lg:px-18 pb-24 pt-18">
           <div className="max-w-2xl text-white">
             <h1 className="RedHat uppercase mt-6 text-4xl sm:text-6xl font-black leading-tight lg:text-6xl xl:text-6xl">
               Votre partenaire en <span className="text-[#FF8905]">conteneurs</span> et <span className="text-[#FF8905]">bungalows</span>
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-neutral-100 grid grid-col-1 sm:grid-cols-2  lg:grid-cols-4 gap-6 mt-10 px-6 lg:px-0 lg:max-w-fit lg:mx-auto py-10">
+      <section className="bg-neutral-100 grid grid-col-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-4 sm:px-6 lg:px-0 lg:max-w-fit lg:mx-auto py-10 overflow-x-hidden">
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-lg">
           <img src="/icons/Desk.svg" alt="" />
           <div className="flex flex-col justify-center items-center gap-2">
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="catalogue" className="mx-auto px-15 pb-24 pt-24 lg:px-60" aria-labelledby="produits">
+      <section id="catalogue" className="mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-60 pb-24 pt-24 overflow-x-hidden" aria-labelledby="produits">
         <header className="text-center">
           <h3 className="RedHat uppercase tracking-[0.35em] text-3xl font-semibold text-black">Nos produits</h3>
         </header>
@@ -151,8 +151,8 @@ export default function Home() {
       </section>
 
 
-      <section className="bg-[#FF8905] text-primary-950" aria-labelledby="cta">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 py-25 px-12 text-center lg:px-12">
+      <section className="bg-[#FF8905] text-primary-950 overflow-x-hidden" aria-labelledby="cta">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 py-25 px-4 sm:px-6 md:px-12 text-center">
           <h2 id="cta-title" className="RedHat text-[6vw] sm:text-5xl font-bold uppercase text-white">Un projet en tête ?</h2>
           <p className="max-w-2xl text-sm sm:text-base text-white">
             Notre équipe d’experts est à votre disposition pour vous conseiller et vous proposer la solution la mieux adaptée à vos besoins.

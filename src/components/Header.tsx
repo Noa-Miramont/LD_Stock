@@ -85,12 +85,12 @@ export default function Header() {
   }, [pathname])
 
   return (
-    <header className={`sticky top-0 z-50 transition-colors duration-300 ${
+    <header className={`sticky top-0 z-50 transition-colors duration-300 overflow-x-hidden ${
       isOverHero && pathname === "/" 
         ? "bg-white md:bg-transparent" 
         : "bg-white"
     }`}>
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-2 sm:px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
