@@ -7,7 +7,7 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '6 pieds',
     state: 'occasion',
-    description: 'Conteneur maritime 6 pieds d’occasion, idéal pour le stockage compact et sécurisé. Robuste et pratique, il convient parfaitement pour entreposer du matériel, des outils ou des archives dans les petits espaces.',
+    description: "Conteneur maritime 6 pieds d'occasion, idéal pour le stockage compact et sécurisé. Robuste et pratique, il convient parfaitement pour entreposer du matériel, des outils ou des archives dans les petits espaces.",
     littleDescription: 'Petit conteneur 6 pieds robuste idéal pour du stockage sécurisé.',
     image: '/img/Container_mockup.png',
     dimensions: {
@@ -25,6 +25,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
     },
   },
 
@@ -53,6 +58,11 @@ export const containers: Container[] = [
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
     },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
+    },
   },
 
   // Conteneur 8 pieds - Occasion
@@ -61,8 +71,8 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '8 pieds',
     state: 'occasion',
-    description: 'Conteneur maritime 8 pieds d’occasion offrant une capacité de stockage supérieure tout en restant facile à installer dans les espaces restreints. Parfait pour sécuriser outils, marchandises ou équipements.',
-    littleDescription: 'Conteneur 8 pieds d’occasion, pratique pour un stockage supplémentaire.',
+    description: "Conteneur maritime 8 pieds d'occasion offrant une capacité de stockage supérieure tout en restant facile à installer dans les espaces restreints. Parfait pour sécuriser outils, marchandises ou équipements.",
+    littleDescription: "Conteneur 8 pieds d'occasion, pratique pour un stockage supplémentaire.",
     image: '/img/Container_mockup.png',
     dimensions: {
       length: 2.43,
@@ -79,6 +89,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
     },
   },
 
@@ -107,6 +122,11 @@ export const containers: Container[] = [
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
     },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
+    },
   },
 
   // Conteneur 10 pieds - Occasion
@@ -115,8 +135,8 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '10 pieds',
     state: 'occasion',
-    description: 'Conteneur maritime 10 pieds d’occasion offrant un espace de stockage polyvalent et sécurisé. Sa taille intermédiaire en fait un excellent choix pour les chantiers et zones industrielles.',
-    littleDescription: 'Conteneur 10 pieds d’occasion, bonne capacité et prix attractif.',
+    description: "Conteneur maritime 10 pieds d'occasion offrant un espace de stockage polyvalent et sécurisé. Sa taille intermédiaire en fait un excellent choix pour les chantiers et zones industrielles.",
+    littleDescription: "Conteneur 10 pieds d'occasion, bonne capacité et prix attractif.",
     image: '/img/Container_mockup.png',
     dimensions: {
       length: 2.99,
@@ -133,6 +153,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: true,
     },
   },
 
@@ -161,6 +186,11 @@ export const containers: Container[] = [
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
     },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: true,
+    },
   },
 
   // Conteneur 15 pieds - Occasion
@@ -169,8 +199,8 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '15 pieds',
     state: 'occasion',
-    description: 'Conteneur maritime 15 pieds d’occasion offrant un volume supplémentaire pour le stockage intermédiaire. Une solution fiable pour entreposer du matériel sur le long terme.',
-    littleDescription: 'Conteneur 15 pieds d’occasion, parfait pour stocker plus facilement.',
+    description: "Conteneur maritime 15 pieds d'occasion offrant un volume supplémentaire pour le stockage intermédiaire. Une solution fiable pour entreposer du matériel sur le long terme.",
+    littleDescription: "Conteneur 15 pieds d'occasion, parfait pour stocker plus facilement.",
     image: '/img/Container_mockup.png',
     dimensions: {
       length: 4.5,
@@ -188,6 +218,11 @@ export const containers: Container[] = [
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
     },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
+    },
   },
 
   // Conteneur 20 pieds - Occasion
@@ -196,7 +231,7 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '20 pieds',
     state: 'occasion',
-    description: 'Conteneur maritime 20 pieds d’occasion, format standard le plus utilisé dans le transport et le stockage. Spacieux, robuste et polyvalent, il s’adapte à toutes les utilisations.',
+    description: "Conteneur maritime 20 pieds d'occasion, format standard le plus utilisé dans le transport et le stockage. Spacieux, robuste et polyvalent, il s'adapte à toutes les utilisations.",
     littleDescription: 'Conteneur 20 pieds occasion, grand volume à prix réduit.',
     image: '/img/Container_mockup.png',
     dimensions: {
@@ -214,6 +249,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: true,
     },
   },
 
@@ -242,6 +282,11 @@ export const containers: Container[] = [
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
     },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: true,
+    },
   },
 
   // Conteneur 40 pieds - Occasion
@@ -250,8 +295,8 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '40 pieds',
     state: 'occasion',
-    description: 'Conteneur maritime 40 pieds d’occasion offrant un immense volume de stockage. Idéal pour entreposer du matériel encombrant ou créer des structures modulaires à grand format.',
-    littleDescription: 'Grand conteneur 40 pieds d’occasion, capacité maximale.',
+    description: "Conteneur maritime 40 pieds d'occasion offrant un immense volume de stockage. Idéal pour entreposer du matériel encombrant ou créer des structures modulaires à grand format.",
+    littleDescription: "Grand conteneur 40 pieds d'occasion, capacité maximale.",
     image: '/img/Container_mockup.png',
     dimensions: {
       length: 12.19,
@@ -268,6 +313,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: false,
+      rentalHomeDelivery: false,
+      rentalOnSite: false,
     },
   },
 
@@ -296,6 +346,11 @@ export const containers: Container[] = [
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
     },
+    deliveryOptions: {
+      purchaseHomeDelivery: false,
+      rentalHomeDelivery: false,
+      rentalOnSite: false,
+    },
   },
 
   // Bungalow - Occasion
@@ -304,8 +359,8 @@ export const containers: Container[] = [
     type: 'bungalow',
     size: 'standard',
     state: 'occasion',
-    description: 'Bungalow modulaire d’occasion, idéal pour aménager rapidement un espace de bureau, de réunion ou de vie sur site. Fonctionnel et polyvalent, il s’adapte à tous les besoins professionnels.',
-    littleDescription: 'Bungalow d’occasion pratique pour créer un espace de travail.',
+    description: "Bungalow modulaire d'occasion, idéal pour aménager rapidement un espace de bureau, de réunion ou de vie sur site. Fonctionnel et polyvalent, il s'adapte à tous les besoins professionnels.",
+    littleDescription: "Bungalow d'occasion pratique pour créer un espace de travail.",
     image: '/img/Bungalow_mockup.png',
     dimensions: {
       length: 6.0,
@@ -322,6 +377,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
     },
   },
 
@@ -349,6 +409,11 @@ export const containers: Container[] = [
       fourth: "Sécurisé avec fermeture renforcée",
       fifth: "Certfifié pour usage maritime",
       sixth: "Porte double battante",
+    },
+    deliveryOptions: {
+      purchaseHomeDelivery: true,
+      rentalHomeDelivery: true,
+      rentalOnSite: false,
     },
   }
 ];

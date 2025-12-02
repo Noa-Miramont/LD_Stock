@@ -60,7 +60,8 @@ export default function Header() {
         const headerHeight = 80
         
         // Si on est au-dessus de la section hero (le bas de la section est encore visible)
-        if (rect.bottom > headerHeight) {
+        // On vérifie aussi si on est au top de la page
+        if (rect.bottom > headerHeight || window.scrollY === 0) {
           setIsOverHero(true)
         } else {
           setIsOverHero(false)
@@ -69,7 +70,13 @@ export default function Header() {
 
       window.addEventListener("scroll", handleScroll, { passive: true })
       // Vérifier l'état initial après un court délai pour s'assurer que le layout est calculé
-      setTimeout(handleScroll, 0)
+      setTimeout(() => {
+        handleScroll()
+        // Double vérification après le rendu complet
+        requestAnimationFrame(() => {
+          setTimeout(handleScroll, 100)
+        })
+      }, 100)
       requestAnimationFrame(handleScroll)
 
       cleanup = () => {
@@ -85,7 +92,7 @@ export default function Header() {
   }, [pathname])
 
   return (
-    <header className={`sticky top-0 z-50 transition-colors duration-300 overflow-x-hidden ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 overflow-x-hidden ${
       isOverHero && pathname === "/" 
         ? "bg-white md:bg-transparent" 
         : "bg-white"
@@ -130,7 +137,7 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="Lato inline-flex items-center justify-center rounded-xl bg-[#FF8905] px-6 py-2.5 text-sm font-bold tracking-wide text-white transition hover:bg-[#e67804]"
+              className="Poppins inline-flex items-center justify-center rounded-xl bg-[#FF8905] px-6 py-2.5 text-base font-medium tracking-wide text-white transition hover:bg-[#e67804]"
             >
               Demander un devis
             </Link>

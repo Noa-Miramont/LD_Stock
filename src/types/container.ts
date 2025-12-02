@@ -18,6 +18,12 @@ export interface characteristic {
   sixth: string,
 }
 
+export interface DeliveryOptions {
+  purchaseHomeDelivery: boolean; // Achat avec livraison à domicile
+  rentalHomeDelivery: boolean; // Location avec livraison à domicile
+  rentalOnSite: boolean; // Location sur site
+}
+
 export interface Container {
   id: string;
   type: ProductType;
@@ -30,5 +36,6 @@ export interface Container {
   purchasePrice: number; // prix à l'achat en € HT
   rentalPrice: number | null; // prix à la location en € HT/mois, null si non disponible
   characteristic: characteristic;
+  deliveryOptions: DeliveryOptions;
 }
 

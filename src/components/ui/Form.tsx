@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 type RequestSubject = 
   | 'location-conteneur'
@@ -12,22 +12,48 @@ type ServiceType = 'sur-site' | 'a-domicile' | ''
 
 type ContainerType = 'stockage' | 'maritime' | ''
 
-export default function Form() {
+interface FormInitialValues {
+  objet?: RequestSubject | ''
+  service?: ServiceType
+  taille?: string
+  localisation?: string
+  typeConteneur?: ContainerType
+}
+
+interface FormProps {
+  initialValues?: FormInitialValues
+}
+
+export default function Form({ initialValues }: FormProps = {}) {
   const [formData, setFormData] = useState({
     nomComplet: '',
     email: '',
     telephone: '',
-    objet: '' as RequestSubject | '',
+    objet: (initialValues?.objet || '') as RequestSubject | '',
     message: '',
-    service: '' as ServiceType,
-    taille: '',
-    localisation: '',
-    typeConteneur: '' as ContainerType
+    service: (initialValues?.service || '') as ServiceType,
+    taille: initialValues?.taille || '',
+    localisation: initialValues?.localisation || '',
+    typeConteneur: (initialValues?.typeConteneur || '') as ContainerType
   })
 
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | 'warning' | null, message: string }>({ type: null, message: '' })
+
+  // Mettre à jour le formulaire si les valeurs initiales changent
+  useEffect(() => {
+    if (initialValues) {
+      setFormData(prev => ({
+        ...prev,
+        objet: (initialValues.objet || prev.objet) as RequestSubject | '',
+        service: (initialValues.service || prev.service) as ServiceType,
+        taille: initialValues.taille || prev.taille,
+        localisation: initialValues.localisation || prev.localisation,
+        typeConteneur: (initialValues.typeConteneur || prev.typeConteneur) as ContainerType
+      }))
+    }
+  }, [initialValues])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target

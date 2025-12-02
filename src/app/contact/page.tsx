@@ -1,8 +1,29 @@
+'use client'
+
+import { useSearchParams } from 'next/navigation'
 import Form from "../../components/ui/Form"
 
 export default function Header() {
+    const searchParams = useSearchParams()
+    
+    // Lire les paramètres de l'URL
+    const objet = searchParams.get('objet') || ''
+    const service = searchParams.get('service') || ''
+    const taille = searchParams.get('taille') || ''
+    const localisation = searchParams.get('localisation') || ''
+    const typeConteneur = searchParams.get('typeConteneur') || ''
+
+    // Préparer les valeurs initiales pour le formulaire
+    const initialValues = {
+        objet: objet as any,
+        service: service as any,
+        taille: taille,
+        localisation: localisation,
+        typeConteneur: typeConteneur as any
+    }
+
     return (
-        <main className="pt-12 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
+        <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
             <header className="flex flex-col justify-start gap-5">
                 <h1 className="RedHat font-bold text-3xl sm:text-4xl md:text-5xl uppercase">Contactez-nous</h1>
                 <p className="Inter text-base text-[#727272]">Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans votre projet</p>
@@ -10,7 +31,7 @@ export default function Header() {
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-15 w-full">
             <div className="w-full lg:w-2/3 mb-8 lg:mb-20">
-                <Form />
+                <Form initialValues={initialValues} />
             </div>
 
             <div className="space-y-12 w-full lg:w-1/3 pb-14">
