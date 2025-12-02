@@ -13,7 +13,7 @@ export default function Header() {
                 <Form />
             </div>
 
-            <div className="space-y-12 w-full lg:w-1/3">
+            <div className="space-y-12 w-full lg:w-1/3 pb-14">
                 <div className="flex flex-col justify-start rounded-2xl bg-white shadow-lg py-5 px-5 space-y-7">
                     <h3 className="poppins text-lg font-medium ">Information de contact</h3>
                     <div className="space-y-8">
