@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       <body className={`${inter.variable} ${redHat.variable} ${lato.variable} ${poppins.variable} antialiased overflow-x-hidden`}>
-        <Header />
+        <Header/>
         {children}
         <Footer/>
       </body>

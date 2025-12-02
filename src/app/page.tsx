@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Home() {
   return (
     <main className="text-primary-900">
-      <section id="hero-section" className="relative isolate overflow-hidden -mt-20 pt-20">
+      <section id="hero-section" className="relative isolate overflow-hidden pt-20 bg-[#F8FAFB]">
         <div className="absolute inset-0">
           <Image
             src="/img/Main_bg_image.png"
@@ -57,29 +57,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-neutral-100 grid grid-col-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-4 sm:px-6 lg:px-0 lg:max-w-fit lg:mx-auto py-10 overflow-x-hidden">
-        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-lg">
+      <section className="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-5 sm:px-6 lg:px-6 lg:max-w-fit lg:mx-auto py-10 overflow-visible">
+        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
           <img src="/icons/Desk.svg" alt="" />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Large gamme</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Bungalow et conteneur pour <br />tout vos besoin</p>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-lg">
+        <div className="flex flex-col justify-center items-center gap-6 bg- py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
           <img src="/icons/package.svg" alt="" />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Livraison rapide</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Service de livraison dans tout <br />la france</p>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-lg">
+        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
           <img src="/icons/Chield.svg" alt="" />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Qualité garentie</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Produit neuf et d'occasion <br />vérifié</p>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-lg">
+        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
           <img src="/icons/Time.svg" alt="" />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Location flexible</h2>
