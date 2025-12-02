@@ -1,13 +1,14 @@
-const { createTransporter, getDefaultMailOptions, emailTemplates } = require('../config/mailer');
+import { createTransporter, getDefaultMailOptions, emailTemplates } from './mailer'
 
 /**
  * Service pour l'envoi d'emails via Nodemailer
  */
 class MailService {
+  private transporter: any = null
+  private isConfigured: boolean = false
+
   constructor() {
-    this.transporter = null;
-    this.isConfigured = false;
-    this.initializeTransporter();
+    this.initializeTransporter()
   }
 
   /**
@@ -15,14 +16,14 @@ class MailService {
    */
   initializeTransporter() {
     try {
-      this.transporter = createTransporter();
+      this.transporter = createTransporter()
       // On considère le service comme configuré même si la vérification échoue
       // La vérification réelle se fera lors de l'envoi
-      this.isConfigured = true;
-      console.log('✅ Service mail initialisé (vérification de connexion en cours...)');
-    } catch (error) {
-      console.error('❌ Erreur initialisation service mail:', error.message);
-      this.isConfigured = false;
+      this.isConfigured = true
+      console.log('✅ Service mail initialisé (vérification de connexion en cours...)')
+    } catch (error: any) {
+      console.error('❌ Erreur initialisation service mail:', error.message)
+      this.isConfigured = false
     }
   }
 
@@ -31,16 +32,16 @@ class MailService {
    */
   checkConfiguration() {
     if (!this.isConfigured || !this.transporter) {
-      throw new Error('Service mail non configuré - vérifiez GMAIL_USER et GMAIL_PASSWORD dans le fichier .env');
+      throw new Error('Service mail non configuré - vérifiez GMAIL_USER et GMAIL_PASSWORD dans le fichier .env')
     }
     
     // Vérifier que les variables d'environnement sont présentes
     if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) {
-      throw new Error('Variables GMAIL_USER et GMAIL_PASSWORD manquantes dans le fichier .env');
+      throw new Error('Variables GMAIL_USER et GMAIL_PASSWORD manquantes dans le fichier .env')
     }
     
     if (!process.env.ADMIN_EMAIL) {
-      throw new Error('Variable ADMIN_EMAIL manquante dans le fichier .env');
+      throw new Error('Variable ADMIN_EMAIL manquante dans le fichier .env')
     }
   }
 
@@ -48,11 +49,11 @@ class MailService {
    * Envoie un email à l'administrateur avec les données du formulaire
    * @param {Object} formData - Données du formulaire de contact
    */
-  async sendAdminNotification(formData) {
-    this.checkConfiguration();
+  async sendAdminNotification(formData: any) {
+    this.checkConfiguration()
 
     try {
-      const defaultOptions = getDefaultMailOptions();
+      const defaultOptions = getDefaultMailOptions()
       
       const mailOptions = {
         ...defaultOptions,
@@ -61,31 +62,31 @@ class MailService {
         html: emailTemplates.adminNotification(formData),
         // Version texte de secours
         text: this.createPlainTextVersion(formData, 'admin')
-      };
+      }
 
-      console.log(`📤 Envoi email admin à: ${process.env.ADMIN_EMAIL}`);
-      const result = await this.transporter.sendMail(mailOptions);
+      console.log(`📤 Envoi email admin à: ${process.env.ADMIN_EMAIL}`)
+      const result = await this.transporter.sendMail(mailOptions)
       
-      console.log('✅ Email admin envoyé avec succès:', result.messageId);
+      console.log('✅ Email admin envoyé avec succès:', result.messageId)
       return {
         success: true,
         messageId: result.messageId,
         recipient: process.env.ADMIN_EMAIL
-      };
+      }
 
-    } catch (error) {
-      console.error('❌ Erreur envoi email admin:', error);
+    } catch (error: any) {
+      console.error('❌ Erreur envoi email admin:', error)
       
       // Message d'erreur plus détaillé selon le type d'erreur
-      let errorMessage = `Impossible d'envoyer l'email à l'administrateur: ${error.message}`;
+      let errorMessage = `Impossible d'envoyer l'email à l'administrateur: ${error.message}`
       
       if (error.code === 'EAUTH') {
-        errorMessage = `Erreur d'authentification Gmail. Vérifiez que vous utilisez un "Mot de passe d'application" (pas votre mot de passe habituel). Créez-en un sur: https://myaccount.google.com/apppasswords`;
+        errorMessage = `Erreur d'authentification Gmail. Vérifiez que vous utilisez un "Mot de passe d'application" (pas votre mot de passe habituel). Créez-en un sur: https://myaccount.google.com/apppasswords`
       } else if (error.message && error.message.includes('Invalid login')) {
-        errorMessage = `Identifiants Gmail invalides. Vérifiez GMAIL_USER et GMAIL_PASSWORD dans le fichier .env. Utilisez un "Mot de passe d'application" Gmail.`;
+        errorMessage = `Identifiants Gmail invalides. Vérifiez GMAIL_USER et GMAIL_PASSWORD dans le fichier .env. Utilisez un "Mot de passe d'application" Gmail.`
       }
       
-      throw new Error(errorMessage);
+      throw new Error(errorMessage)
     }
   }
 
@@ -93,16 +94,16 @@ class MailService {
    * Envoie un email de confirmation au client
    * @param {Object} formData - Données du formulaire de contact
    */
-  async sendClientConfirmation(formData) {
-    this.checkConfiguration();
+  async sendClientConfirmation(formData: any) {
+    this.checkConfiguration()
 
     // Vérification que l'email client est fourni
     if (!formData.email) {
-      throw new Error('Email client non fourni pour l\'envoi de confirmation');
+      throw new Error('Email client non fourni pour l\'envoi de confirmation')
     }
 
     try {
-      const defaultOptions = getDefaultMailOptions();
+      const defaultOptions = getDefaultMailOptions()
       
       const mailOptions = {
         ...defaultOptions,
@@ -111,31 +112,31 @@ class MailService {
         html: emailTemplates.clientConfirmation(formData),
         // Version texte de secours
         text: this.createPlainTextVersion(formData, 'client')
-      };
+      }
 
-      console.log(`📤 Envoi email confirmation à: ${formData.email}`);
-      const result = await this.transporter.sendMail(mailOptions);
+      console.log(`📤 Envoi email confirmation à: ${formData.email}`)
+      const result = await this.transporter.sendMail(mailOptions)
       
-      console.log('✅ Email confirmation envoyé avec succès:', result.messageId);
+      console.log('✅ Email confirmation envoyé avec succès:', result.messageId)
       return {
         success: true,
         messageId: result.messageId,
         recipient: formData.email
-      };
+      }
 
-    } catch (error) {
-      console.error('❌ Erreur envoi email confirmation:', error);
+    } catch (error: any) {
+      console.error('❌ Erreur envoi email confirmation:', error)
       
       // Message d'erreur plus détaillé selon le type d'erreur
-      let errorMessage = `Impossible d'envoyer l'email de confirmation: ${error.message}`;
+      let errorMessage = `Impossible d'envoyer l'email de confirmation: ${error.message}`
       
       if (error.code === 'EAUTH') {
-        errorMessage = `Erreur d'authentification Gmail. Vérifiez que vous utilisez un "Mot de passe d'application" (pas votre mot de passe habituel).`;
+        errorMessage = `Erreur d'authentification Gmail. Vérifiez que vous utilisez un "Mot de passe d'application" (pas votre mot de passe habituel).`
       } else if (error.message && error.message.includes('Invalid login')) {
-        errorMessage = `Identifiants Gmail invalides. Vérifiez GMAIL_USER et GMAIL_PASSWORD dans le fichier .env.`;
+        errorMessage = `Identifiants Gmail invalides. Vérifiez GMAIL_USER et GMAIL_PASSWORD dans le fichier .env.`
       }
       
-      throw new Error(errorMessage);
+      throw new Error(errorMessage)
     }
   }
 
@@ -144,7 +145,7 @@ class MailService {
    * @param {Object} formData - Données du formulaire
    * @param {string} type - Type d'email ('admin' ou 'client')
    */
-  createPlainTextVersion(formData, type) {
+  createPlainTextVersion(formData: any, type: string) {
     if (type === 'admin') {
       const isLocation = formData.typedemande && formData.typedemande.includes('Location')
       const isAchat = formData.typedemande && (formData.typedemande.includes('Achat') || formData.typedemande.includes('achat'))
@@ -199,7 +200,7 @@ Date de réception: ${new Date().toLocaleString('fr-FR', { dateStyle: 'full', ti
 
 Message reçu automatiquement depuis le formulaire de contact de votre site
 LD Stock - ${new Date().getFullYear()}
-      `;
+      `
     } else {
       return `
 CONFIRMATION DE RÉCEPTION
@@ -221,7 +222,7 @@ L'équipe ${process.env.COMPANY_NAME || 'Votre Entreprise'}
 ---
 Cet email est envoyé automatiquement, merci de ne pas y répondre.
 Pour toute question, contactez-nous directement.
-      `;
+      `
     }
   }
 
@@ -230,22 +231,22 @@ Pour toute question, contactez-nous directement.
    */
   async testConfiguration() {
     try {
-      this.checkConfiguration();
+      this.checkConfiguration()
       
       // Test de la connexion SMTP
-      await this.transporter.verify();
+      await this.transporter.verify()
       
       return {
         configured: true,
         smtpConnected: true,
         adminEmail: process.env.ADMIN_EMAIL || 'non configuré'
-      };
-    } catch (error) {
+      }
+    } catch (error: any) {
       return {
         configured: false,
         error: error.message,
         adminEmail: process.env.ADMIN_EMAIL || 'non configuré'
-      };
+      }
     }
   }
 
@@ -253,10 +254,10 @@ Pour toute question, contactez-nous directement.
    * Envoie un email de test
    * @param {string} testEmail - Email de destination pour le test
    */
-  async sendTestEmail(testEmail) {
-    this.checkConfiguration();
+  async sendTestEmail(testEmail: string) {
+    this.checkConfiguration()
 
-    const defaultOptions = getDefaultMailOptions();
+    const defaultOptions = getDefaultMailOptions()
     
     const mailOptions = {
       ...defaultOptions,
@@ -268,15 +269,16 @@ Pour toute question, contactez-nous directement.
         <p><strong>Date du test :</strong> ${new Date().toLocaleString('fr-FR')}</p>
       `,
       text: `Test de configuration réussi ! Ce message confirme que la configuration email fonctionne correctement. Date du test : ${new Date().toLocaleString('fr-FR')}`
-    };
+    }
 
-    const result = await this.transporter.sendMail(mailOptions);
+    const result = await this.transporter.sendMail(mailOptions)
     return {
       success: true,
       messageId: result.messageId,
       recipient: testEmail
-    };
+    }
   }
 }
 
-module.exports = new MailService();
+export const mailService = new MailService()
+

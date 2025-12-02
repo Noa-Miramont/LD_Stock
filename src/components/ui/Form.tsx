@@ -220,10 +220,8 @@ export default function Form({ initialValues }: FormProps = {}) {
         typeConteneur: formData.typeConteneur ? typeConteneurMapping[formData.typeConteneur] : undefined
       }
 
-      // URL du backend - à adapter selon votre configuration
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
-      
-      const response = await fetch(`${apiUrl}/api/form/submit`, {
+      // Utilisation des routes API Next.js
+      const response = await fetch('/api/form/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

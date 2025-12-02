@@ -1,13 +1,13 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer'
 
 /**
  * Configuration du transporteur Nodemailer pour Gmail
  * Utilise les App Passwords de Gmail pour l'authentification
  */
-const createTransporter = () => {
+export const createTransporter = () => {
   // Vérification des variables d'environnement requises
   if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) {
-    throw new Error('Configuration Gmail manquante: GMAIL_USER et GMAIL_PASSWORD sont requis');
+    throw new Error('Configuration Gmail manquante: GMAIL_USER et GMAIL_PASSWORD sont requis')
   }
 
   const transporter = nodemailer.createTransport({
@@ -22,43 +22,43 @@ const createTransporter = () => {
     maxMessages: 100,
     rateDelta: 20000, // 20 secondes
     rateLimit: 5 // 5 emails max par rateDelta
-  });
+  })
 
   // Vérification de la connexion au démarrage (asynchrone, ne bloque pas le démarrage)
-  transporter.verify((error, success) => {
+  transporter.verify((error: any, success: any) => {
     if (error) {
-      console.error('❌ Erreur de configuration Nodemailer:', error.message);
+      console.error('❌ Erreur de configuration Nodemailer:', error.message)
       if (error.code === 'EAUTH') {
-        console.error('⚠️  Erreur d\'authentification Gmail:');
-        console.error('   - Vérifiez que GMAIL_USER et GMAIL_PASSWORD sont corrects');
-        console.error('   - Assurez-vous d\'utiliser un "Mot de passe d\'application" Gmail (pas votre mot de passe habituel)');
-        console.error('   - Activez l\'authentification à 2 facteurs sur votre compte Gmail');
-        console.error('   - Créez un mot de passe d\'application: https://myaccount.google.com/apppasswords');
+        console.error('⚠️  Erreur d\'authentification Gmail:')
+        console.error('   - Vérifiez que GMAIL_USER et GMAIL_PASSWORD sont corrects')
+        console.error('   - Assurez-vous d\'utiliser un "Mot de passe d\'application" Gmail (pas votre mot de passe habituel)')
+        console.error('   - Activez l\'authentification à 2 facteurs sur votre compte Gmail')
+        console.error('   - Créez un mot de passe d\'application: https://myaccount.google.com/apppasswords')
       }
     } else {
-      console.log('✅ Serveur SMTP Gmail connecté et prêt');
+      console.log('✅ Serveur SMTP Gmail connecté et prêt')
     }
-  });
+  })
 
-  return transporter;
-};
+  return transporter
+}
 
 /**
  * Options par défaut pour les emails
  */
-const getDefaultMailOptions = () => ({
+export const getDefaultMailOptions = () => ({
   from: {
     name: process.env.COMPANY_NAME || 'Votre Entreprise',
-    address: process.env.GMAIL_USER
+    address: process.env.GMAIL_USER || ''
   }
-});
+})
 
 /**
  * Templates HTML pour les emails
  */
-const emailTemplates = {
+export const emailTemplates = {
   // Template pour l'email admin (réception formulaire)
-  adminNotification: (formData) => {
+  adminNotification: (formData: any) => {
     // Déterminer si c'est une demande de location, achat ou renseignement
     const isLocation = formData.typedemande && formData.typedemande.includes('Location')
     const isAchat = formData.typedemande && (formData.typedemande.includes('Achat') || formData.typedemande.includes('achat'))
@@ -189,7 +189,7 @@ const emailTemplates = {
   },
 
   // Template pour l'email de confirmation client
-  clientConfirmation: (formData) => `
+  clientConfirmation: (formData: any) => `
     <!DOCTYPE html>
     <html>
     <head>
@@ -237,10 +237,5 @@ const emailTemplates = {
     </body>
     </html>
   `
-};
+}
 
-module.exports = {
-  createTransporter,
-  getDefaultMailOptions,
-  emailTemplates
-};

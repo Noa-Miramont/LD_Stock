@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Red_Hat_Display, Poppins, Lato } from "next/font/google"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import SmoothScroll from "../components/SmoothScroll"
 import "./globals.css"
 
 const inter = Inter({
@@ -40,9 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       <body className={`${inter.variable} ${redHat.variable} ${lato.variable} ${poppins.variable} antialiased overflow-x-hidden`}>
-        <Header/>
-        {children}
-        <Footer/>
+        <SmoothScroll>
+          <Header/>
+          {children}
+          <Footer/>
+        </SmoothScroll>
       </body>
     </html>
   )
