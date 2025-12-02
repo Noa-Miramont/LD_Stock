@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import Image from 'next/image'
 import { getContainerById } from '@/data/containers'
 import { Container } from '@/types/container'
@@ -9,7 +9,7 @@ import { Container } from '@/types/container'
 type PurchaseType = 'achat' | 'location' | ''
 type DeliveryType = 'domicile' | 'site' | ''
 
-export default function ProduitPage() {
+function ProduitContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [container, setContainer] = useState<Container | undefined>(undefined)
@@ -311,5 +311,17 @@ export default function ProduitPage() {
         </div>
       </section>
     </main>
+  )
+}
+
+export default function ProduitPage() {
+  return (
+    <Suspense fallback={
+      <main className="pt-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 bg-neutral-100 min-h-screen flex items-center justify-center">
+        <p className="text-lg">Chargement...</p>
+      </main>
+    }>
+      <ProduitContent />
+    </Suspense>
   )
 }

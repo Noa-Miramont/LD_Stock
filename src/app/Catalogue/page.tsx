@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import ProductCard from "../../components/ui/Product_card"
 import { containers } from "../../data/containers"
 import { ProductType, ContainerState } from "../../types/container"
 
-export default function Home() {
+function CatalogueContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   
@@ -227,5 +227,19 @@ export default function Home() {
       </section>
       
     </main>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-24 bg-neutral-100 overflow-x-hidden">
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="Inter text-base text-[#727272]">Chargement...</p>
+        </div>
+      </main>
+    }>
+      <CatalogueContent />
+    </Suspense>
   )
 }

@@ -1,9 +1,10 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Form from "../../components/ui/Form"
 
-export default function Header() {
+function ContactContent() {
     const searchParams = useSearchParams()
     
     // Lire les paramètres de l'URL
@@ -79,5 +80,19 @@ export default function Header() {
         
 
        </main>
-    );
+    )
+}
+
+export default function Header() {
+    return (
+        <Suspense fallback={
+            <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
+                <div className="flex items-center justify-center min-h-screen">
+                    <p className="Inter text-base text-[#727272]">Chargement...</p>
+                </div>
+            </main>
+        }>
+            <ContactContent />
+        </Suspense>
+    )
 }
