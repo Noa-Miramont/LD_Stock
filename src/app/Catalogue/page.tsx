@@ -15,9 +15,17 @@ function CatalogueContent() {
   const [selectedState, setSelectedState] = useState<ContainerState | 'tout'>('tout')
   const [isInitialized, setIsInitialized] = useState(false)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  // S'assurer que le composant est monté avant d'utiliser searchParams
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   // Synchroniser avec l'URL au chargement initial (une seule fois)
   useEffect(() => {
+    if (!isMounted) return
+    
     try {
       const type = searchParams.get('type')
       const state = searchParams.get('state')
@@ -36,7 +44,7 @@ function CatalogueContent() {
     
     setIsInitialized(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [isMounted])
 
   // Mettre à jour l'URL quand les filtres changent (seulement après l'initialisation)
   useEffect(() => {
@@ -257,7 +265,7 @@ function CatalogueFallback() {
   )
 }
 
-export default function Home() {
+export default function CataloguePage() {
   return (
     <Suspense fallback={<CatalogueFallback />}>
       <CatalogueContent />
