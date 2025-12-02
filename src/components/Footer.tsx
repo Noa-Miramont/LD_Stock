@@ -13,7 +13,7 @@ export default function Footer() {
                             id="pied-de-page"
                             className="RedHat text-[7.2vw] lg:text-[3.75vw] xl:text-[3.75vw] uppercase leading-tight tracking-tight"
                         >
-                            L'ESPACE À<br className="hidden xl:inline" />
+                            L'ESPACE À <br className="hidden xl:inline" />
                             VOTRE RYTHME
                         </h5>
                     </div>
@@ -54,6 +54,7 @@ export default function Footer() {
                                 <li>ldstock@orange.fr</li>
                             </ul>
                         </div>
+                    </div>
 
                     {/* Horaires */}
                     <div className="hidden lg:block min-w-[200px]">
@@ -66,7 +67,6 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                  </div>
                 </div>
 
                 {/* Séparateur */}
