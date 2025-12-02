@@ -10,39 +10,28 @@ function CatalogueContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   
-  // Initialiser depuis l'URL ou valeurs par défaut
-  const getInitialType = (): ProductType | 'tous' => {
-    const type = searchParams.get('type')
-    if (type === 'conteneur' || type === 'bungalow') {
-      return type
-    }
-    return 'tous'
-  }
-
-  const getInitialState = (): ContainerState | 'tout' => {
-    const state = searchParams.get('state')
-    if (state === 'neuf' || state === 'occasion' || state === 'premier-voyage') {
-      return state
-    }
-    return 'tout'
-  }
-
-  const [selectedType, setSelectedType] = useState<ProductType | 'tous'>(getInitialType)
-  const [selectedState, setSelectedState] = useState<ContainerState | 'tout'>(getInitialState)
+  // Initialiser avec des valeurs par défaut (ne pas utiliser searchParams dans l'initialisation)
+  const [selectedType, setSelectedType] = useState<ProductType | 'tous'>('tous')
+  const [selectedState, setSelectedState] = useState<ContainerState | 'tout'>('tout')
   const [isInitialized, setIsInitialized] = useState(false)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
   // Synchroniser avec l'URL au chargement initial (une seule fois)
   useEffect(() => {
-    const type = searchParams.get('type')
-    const state = searchParams.get('state')
-    
-    if (type === 'conteneur' || type === 'bungalow') {
-      setSelectedType(type)
-    }
-    
-    if (state === 'neuf' || state === 'occasion' || state === 'premier-voyage') {
-      setSelectedState(state)
+    try {
+      const type = searchParams.get('type')
+      const state = searchParams.get('state')
+      
+      if (type === 'conteneur' || type === 'bungalow') {
+        setSelectedType(type)
+      }
+      
+      if (state === 'neuf' || state === 'occasion' || state === 'premier-voyage') {
+        setSelectedState(state)
+      }
+    } catch (error) {
+      // Ignorer les erreurs lors du pré-rendu statique
+      console.error('Erreur lors de la lecture des paramètres:', error)
     }
     
     setIsInitialized(true)
@@ -230,15 +219,47 @@ function CatalogueContent() {
   )
 }
 
+function CatalogueFallback() {
+  return (
+    <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-24 bg-neutral-100 overflow-x-hidden">
+      <header className="flex flex-col justify-start gap-5">
+        <h1 className="RedHat font-bold text-5xl uppercase">Notre catalogue</h1>
+        <p className="Inter text-base text-[#727272]">Découvrez notre gamme complète de bungalows et conteneurs disponibles à la vente et à la location</p>
+      </header>
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-20">
+        {containers.map((container) => {
+          const stateLabels: Record<string, string> = {
+            'neuf': 'Neuf',
+            'occasion': 'Occasion',
+            'premier-voyage': 'Premier voyage'
+          }
+          const title = container.type === 'bungalow' 
+            ? `Bungalow ${stateLabels[container.state] || container.state}`
+            : `Conteneur ${container.size} ${stateLabels[container.state] || container.state}`
+          
+          return (
+            <ProductCard
+              key={container.id}
+              id={container.id}
+              image={container.image}
+              title={title}
+              description={container.description}
+              littleDescription={container.littleDescription}
+              price={`${container.purchasePrice}€ HT`}
+              rentalPrice={container.rentalPrice ? `${container.rentalPrice}€ HT/mois` : null}
+              productType={container.type}
+              dimensions={container.dimensions}
+            />
+          )
+        })}
+      </section>
+    </main>
+  )
+}
+
 export default function Home() {
   return (
-    <Suspense fallback={
-      <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-24 bg-neutral-100 overflow-x-hidden">
-        <div className="flex items-center justify-center min-h-screen">
-          <p className="Inter text-base text-[#727272]">Chargement...</p>
-        </div>
-      </main>
-    }>
+    <Suspense fallback={<CatalogueFallback />}>
       <CatalogueContent />
     </Suspense>
   )
