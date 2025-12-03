@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -22,13 +23,13 @@ export default function Home() {
               Vente et location de solutions modulaires pour professionnels et particuliers.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:flex-row">
-              <a className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]" href="/catalogue">
+              <Link href="/catalogue" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]">
                 Voir notre catalogue
-              </a>
-              <a className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-transparent border border-white pl-3 sm:pl-4 pr-4 sm:pr-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white hover:bg-[#F8FAFB]" href="/contact">
+              </Link>
+              <Link href="/contact" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-transparent border border-white pl-3 sm:pl-4 pr-4 sm:pr-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white hover:bg-[#F8FAFB]">
                   <img src="/icons/Phone_white.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5" />
                   Nous contacter
-              </a>
+              </Link>
             </div>
             <dl className="flex flex-row sm:flex-row gap-6 sm:gap-8 mt-10 sm:mt-12 text-sm">
               <div className="border-l border-[#FF8905] pl-3 sm:w-[150px]">
@@ -94,13 +95,13 @@ export default function Home() {
         </header>
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {[
+            {[
             { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"catalogue?type=conteneur"},
             { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"catalogue?type=bungalow" },
             { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact" },
           ].map(item => (
             <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer">
-              <a href={item.link}>
+              <Link href={item.link}>
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -119,7 +120,7 @@ export default function Home() {
                     Découvrir →
                   </p>
                 </div>
-              </a>
+              </Link>
             </article>
           ))}
         </div>
@@ -141,9 +142,9 @@ export default function Home() {
               <div className="px-6 py-6 mt-6">
                 <h3 className="Lato text-xl font-semibold text-primary-900">{item.title}</h3>
                 <p className="mt-2 text-sm text-neutral-500">{item.description}</p>
-                <a className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold  tracking-wide text-white transition hover:bg-primary-800" href="#contact">
+                <Link href="#contact" className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold  tracking-wide text-white transition hover:bg-primary-800">
                   Découvrir
-                </a>
+                </Link>
               </div>
             </article>
           ))}
@@ -158,13 +159,13 @@ export default function Home() {
             Notre équipe d’experts est à votre disposition pour vous conseiller et vous proposer la solution la mieux adaptée à vos besoins.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-[#FF8905] transition hover:bg-" href="#contact">
+            <Link href="#contact" className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-[#FF8905] transition hover:bg-">
               <img src="/icons/Phone.svg" alt="/contact" />
               Nous contacter
-            </a>
-            <a className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]" href="/catalogue">
+            </Link>
+            <Link href="/catalogue" className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]">
               Voir notre catalogue
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Footer() {
     return (
         <footer
@@ -24,19 +26,19 @@ export default function Footer() {
                             <h3 className="text-base font-medium mb-4 lg:mb-6">Navigation</h3>
                             <ul className="space-y-3 text-sm text-neutral-300">
                                 <li>
-                                    <a className="transition hover:text-white" href="/">
+                                    <Link className="transition hover:text-white" href="/">
                                         Accueil
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="transition hover:text-white" href="/catalogue">
+                                    <Link className="transition hover:text-white" href="/Catalogue">
                                         Catalogue
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="transition hover:text-white" href="/contact">
+                                    <Link className="transition hover:text-white" href="/contact">
                                         Contact
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
@@ -77,12 +79,12 @@ export default function Footer() {
                     <p className="RedHat text-[14px] md:text-[16px]">© {new Date().getFullYear()} LD Stock. Tous droits réservés.</p>
                     <p className="RedHat text-[12px] md:text-[16px]">
                         Designed and dev by{" "}
-                        <a 
+                        <Link 
                             href="https://www.noamiramont.com/" 
                             className="pointer-cursor hover:underline"
                         >
                             Noa Miramont
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

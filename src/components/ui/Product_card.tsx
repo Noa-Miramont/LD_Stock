@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 // Types pour les props du composant
 interface ProductCardProps {
@@ -55,9 +56,9 @@ export default function ProductCard({
                     <span className="Inter text-lg text-transparent">Location: </span>
                 )}
             </h3>
-            <a className="flex justify-center items-center  mt-auto border border-[#E5E5E5] rounded-lg bg-white py-2 text-md font-semibold text-black tracking-wide transition hover:bg-black hover:text-white" href={`/produit?id=${id}`}>
+            <Link href={`/produit?id=${id}`} className="flex justify-center items-center  mt-auto border border-[#E5E5E5] rounded-lg bg-white py-2 text-md font-semibold text-black tracking-wide transition hover:bg-black hover:text-white">
                 Voir les détails
-            </a>
+            </Link>
         </div>
     </article>
   )
