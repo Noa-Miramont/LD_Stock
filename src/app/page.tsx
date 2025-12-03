@@ -95,8 +95,8 @@ export default function Home() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {[
-            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"/catalogue?type=conteneur"},
-            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"/catalogue?type=bungalow" },
+            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"catalogue?type=conteneur"},
+            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"catalogue?type=bungalow" },
             { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact" },
           ].map(item => (
             <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer">

@@ -1,24 +1,41 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import ProductCard from "../../components/ui/Product_card"
 import { containers } from "../../data/containers"
 import { ProductType, ContainerState } from "../../types/container"
 
-export default function CataloguePage() {
-  // Initialiser avec des valeurs par défaut
-  const [selectedType, setSelectedType] = useState<ProductType | 'tous'>('tous')
-  const [selectedState, setSelectedState] = useState<ContainerState | 'tout'>('tout')
+function CatalogueContent() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  
+  // Initialiser depuis l'URL ou valeurs par défaut
+  const getInitialType = (): ProductType | 'tous' => {
+    const type = searchParams.get('type')
+    if (type === 'conteneur' || type === 'bungalow') {
+      return type
+    }
+    return 'tous'
+  }
+
+  const getInitialState = (): ContainerState | 'tout' => {
+    const state = searchParams.get('state')
+    if (state === 'neuf' || state === 'occasion' || state === 'premier-voyage') {
+      return state
+    }
+    return 'tout'
+  }
+
+  const [selectedType, setSelectedType] = useState<ProductType | 'tous'>(getInitialType)
+  const [selectedState, setSelectedState] = useState<ContainerState | 'tout'>(getInitialState)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
-  // Lire les paramètres de l'URL au chargement (côté client uniquement)
+  // Synchroniser avec l'URL au chargement initial (une seule fois)
   useEffect(() => {
-    if (typeof window === 'undefined') return
-    
-    const params = new URLSearchParams(window.location.search)
-    const type = params.get('type')
-    const state = params.get('state')
+    const type = searchParams.get('type')
+    const state = searchParams.get('state')
     
     if (type === 'conteneur' || type === 'bungalow') {
       setSelectedType(type)
@@ -29,11 +46,12 @@ export default function CataloguePage() {
     }
     
     setIsInitialized(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Mettre à jour l'URL quand les filtres changent (seulement après l'initialisation)
   useEffect(() => {
-    if (!isInitialized || typeof window === 'undefined') return
+    if (!isInitialized) return
     
     const params = new URLSearchParams()
     
@@ -46,15 +64,14 @@ export default function CataloguePage() {
     }
     
     const queryString = params.toString()
-    const currentQuery = window.location.search.substring(1)
+    const currentQuery = searchParams.toString()
     
     // Éviter les mises à jour inutiles
     if (queryString !== currentQuery) {
-      const newUrl = queryString ? `/catalogue?${queryString}` : '/catalogue'
-      // Utiliser window.history au lieu de useRouter pour éviter les problèmes de pré-rendu
-      window.history.replaceState({}, '', newUrl)
+      const newUrl = queryString ? `?${queryString}` : window.location.pathname
+      router.replace(newUrl, { scroll: false })
     }
-  }, [selectedType, selectedState, isInitialized])
+  }, [selectedType, selectedState, router, isInitialized, searchParams])
   // Fonction pour formater le titre à partir de size et state
   const formatTitle = (size: string, state: string, type: string): string => {
     const stateLabels: Record<string, string> = {
@@ -210,5 +227,19 @@ export default function CataloguePage() {
       </section>
       
     </main>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-24 bg-neutral-100 overflow-x-hidden">
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="Inter text-base text-[#727272]">Chargement...</p>
+        </div>
+      </main>
+    }>
+      <CatalogueContent />
+    </Suspense>
   )
 }
