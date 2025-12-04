@@ -31,7 +31,8 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="transition hover:text-white" href="/Catalogue">
+                                    <Link className="transition hover:text-white" href="/C
+                                    atalogue">
                                         Catalogue
                                     </Link>
                                 </li>
