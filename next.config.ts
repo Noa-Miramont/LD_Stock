@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Ensure proper routing in production
-  trailingSlash: false,
+  /* config options here */
 };
 
 export default nextConfig;

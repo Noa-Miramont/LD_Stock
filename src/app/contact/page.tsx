@@ -83,7 +83,7 @@ function ContactContent() {
     )
 }
 
-export default function Header() {
+export default function ContactPage() {
     return (
         <Suspense fallback={
             <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
