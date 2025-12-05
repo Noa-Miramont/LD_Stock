@@ -2,17 +2,14 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // Force dynamic rendering for catalogue route to prevent 404 errors
-  if (request.nextUrl.pathname === '/catalogue') {
-    const response = NextResponse.next()
-    // Add header to prevent static optimization
-    response.headers.set('x-middleware-cache', 'no-cache')
-    return response
-  }
-  
+  // The layout.tsx with dynamic = 'force-dynamic' handles the routing
+  // This middleware is kept for additional safety
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: '/catalogue',
+  matcher: [
+    '/catalogue',
+    '/catalogue/:path*',
+  ],
 }
