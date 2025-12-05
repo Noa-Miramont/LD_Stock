@@ -31,8 +31,7 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="transition hover:text-white" href="/C
-                                    atalogue">
+                                    <Link className="transition hover:text-white" href="/catalogue">
                                         Catalogue
                                     </Link>
                                 </li>
@@ -49,10 +48,10 @@ export default function Footer() {
                             <h3 className="text-base font-medium mb-4 lg:mb-6">Contact</h3>
                             <ul className="space-y-3 text-sm text-neutral-300">
                                 <li className="break-words">
-                                    <span className="font-normal text-white">Location</span> +33 6 98 24 86 90
+                                    <span className="font-normal text-white">Location</span> +33 6 76 81 94 56
                                 </li>
                                 <li className="break-words">
-                                    <span className="font-normal text-white">Achat</span> +33 6 76 81 94 56
+                                    <span className="font-normal text-white">Achat</span> +33 6 98 24 86 90
                                 </li>
                                 <li className="break-words">ldstock@orange.fr</li>
                             </ul>
