@@ -230,7 +230,7 @@ function CatalogueContent() {
   )
 }
 
-export default function Home() {
+export default function CataloguePage() {
   return (
     <Suspense fallback={
       <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-24 bg-neutral-100 overflow-x-hidden">
