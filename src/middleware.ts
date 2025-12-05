@@ -28,12 +28,14 @@ export function middleware(request: NextRequest) {
   
   // Si le pathname en minuscule correspond à une route valide mais que le pathname original est différent
   if (validRoutes[lowerPathname] && pathname !== validRoutes[lowerPathname]) {
-    // Construire la nouvelle URL avec la bonne casse
+    // Réécrire l'URL en interne vers la bonne casse
+    // Cela permet à Next.js de trouver la route même si l'URL a une mauvaise casse
     const url = request.nextUrl.clone()
     url.pathname = validRoutes[lowerPathname]
     
-    // Préserver les query parameters
-    return NextResponse.redirect(url, 301) // 301 = redirection permanente
+    // Utiliser rewrite pour réécrire en interne (l'URL dans le navigateur reste inchangée)
+    // Cela permet à Next.js de trouver la route sans problème
+    return NextResponse.rewrite(url)
   }
 
   return NextResponse.next()
