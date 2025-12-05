@@ -96,8 +96,8 @@ export default function Home() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
             {[
-            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"catalogue?type=conteneur"},
-            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"catalogue?type=bungalow" },
+            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"/Catalogue?type=conteneur"},
+            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"/Catalogue?type=bungalow" },
             { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact" },
           ].map(item => (
             <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer">
@@ -163,7 +163,7 @@ export default function Home() {
               <img src="/icons/Phone.svg" alt="/contact" />
               Nous contacter
             </Link>
-            <Link href="/catalogue" className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]">
+            <Link href="/Catalogue" className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]">
               Voir notre catalogue
             </Link>
           </div>
