@@ -23,7 +23,7 @@ export default function Home() {
               Vente et location de solutions modulaires pour professionnels et particuliers.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href="/catalogue" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]">
+              <Link href="/Catalogue" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]">
                 Voir notre catalogue
               </Link>
               <Link href="/contact" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-transparent border border-white pl-3 sm:pl-4 pr-4 sm:pr-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white hover:bg-[#F8FAFB]">
