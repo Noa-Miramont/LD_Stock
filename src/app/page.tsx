@@ -163,7 +163,7 @@ export default function Home() {
             {[
             { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"/Catalogue?type=conteneur"},
             { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/bungalow_sombre.jpg", link:"/Catalogue?type=bungalow" },
-            { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact" },
+            { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/sur_mesure.png", link:"/contact" },
           ].map(item => (
             <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer">
               <Link href={item.link}>
@@ -173,6 +173,8 @@ export default function Home() {
                   width={680}
                   height={520}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  unoptimized={false}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/60 to-transparent" />
                 <div className="absolute inset-x-0 top-6 flex justify-end px-6">
