@@ -161,8 +161,8 @@ function ProduitContent() {
           </p>
 
           {/* Tarifs */}
-          <div className="flex flex-col gap-3 sm:gap-4">
-            <h2 className="Inter text-lg sm:text-xl font-semibold text-black">Tarifs</h2>
+          <section className="flex flex-col gap-3 sm:gap-4" aria-labelledby="tarifs-title">
+            <h2 id="tarifs-title" className="Inter text-lg sm:text-xl font-semibold text-black">Tarifs</h2>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               {/* Carte Vente */}
               <div className="flex-1 bg-white rounded-lg border border-[#E5E5E5] p-4 sm:p-5">
@@ -187,19 +187,19 @@ function ProduitContent() {
                 </div>
               ) : null}
             </div>
-          </div>
+          </section>
 
           {/* Dimensions */}
-          <div className="flex flex-col gap-2 sm:gap-3">
-            <h2 className="Inter text-lg sm:text-xl font-semibold text-black">Dimensions</h2>
+          <section className="flex flex-col gap-2 sm:gap-3" aria-labelledby="dimensions-title">
+            <h2 id="dimensions-title" className="Inter text-lg sm:text-xl font-semibold text-black">Dimensions</h2>
             <p className="Inter text-base sm:text-lg text-[#727272]">
               {formatDimensions()}
             </p>
-          </div>
+          </section>
 
           {/* Caractéristiques */}
-          <div className="flex flex-col gap-3 sm:gap-4">
-            <h2 className="Inter text-lg sm:text-xl font-semibold text-black">Caractéristiques</h2>
+          <section className="flex flex-col gap-3 sm:gap-4" aria-labelledby="caracteristiques-title">
+            <h2 id="caracteristiques-title" className="Inter text-lg sm:text-xl font-semibold text-black">Caractéristiques</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               {characteristics.map((characteristic, index) => (
                 <li key={index} className="flex items-start gap-2 sm:gap-3">
@@ -222,11 +222,11 @@ function ProduitContent() {
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
 
           {/* Sélection Achat/Location */}
-          <div className="flex flex-col gap-3 sm:gap-4 mt-2 sm:mt-4 pt-4 sm:pt-6 border-t border-[#E5E5E5]">
-            <h2 className="Inter text-lg sm:text-xl font-semibold text-black">Choisir une option</h2>
+          <section className="flex flex-col gap-3 sm:gap-4 mt-2 sm:mt-4 pt-4 sm:pt-6 border-t border-[#E5E5E5]" aria-labelledby="options-title">
+            <h2 id="options-title" className="Inter text-lg sm:text-xl font-semibold text-black">Choisir une option</h2>
             
             {/* Sélecteur Achat/Location */}
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
@@ -307,7 +307,7 @@ function ProduitContent() {
             >
               Demander un devis
             </button>
-          </div>
+          </section>
         </div>
       </section>
     </main>

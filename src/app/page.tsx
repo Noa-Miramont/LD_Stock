@@ -1,9 +1,74 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
+import Script from "next/script"
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description: "LD Stock, votre partenaire en conteneurs maritimes et bungalows. Vente et location de solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France. Plus de 5 ans d'expérience, 500+ clients satisfaits.",
+  keywords: [
+    "conteneur maritime",
+    "bungalow",
+    "conteneur vente",
+    "conteneur location",
+    "solution modulaire",
+    "stockage modulaire",
+    "livraison conteneur France",
+  ],
+  openGraph: {
+    title: "LD Stock - Votre partenaire en conteneurs et bungalows",
+    description: "Vente et location de conteneurs maritimes et bungalows. Solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France.",
+    images: [
+      {
+        url: "/img/Main_bg_image.png",
+        width: 1200,
+        height: 630,
+        alt: "LD Stock - Conteneurs et Bungalows",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LD Stock - Votre partenaire en conteneurs et bungalows",
+    description: "Vente et location de conteneurs maritimes et bungalows. Solutions modulaires pour professionnels et particuliers.",
+    images: ["/img/Main_bg_image.png"],
+  },
+}
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "LD Stock - Conteneurs et Bungalows",
+  description: "Vente et location de conteneurs maritimes et bungalows en France",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ldstock.fr",
+  mainEntity: {
+    "@type": "LocalBusiness",
+    name: "LD Stock",
+    image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://ldstock.fr"}/logo/logo.png`,
+    priceRange: "€€",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "602 route des Palombes",
+      addressLocality: "Villegouge",
+      postalCode: "33141",
+      addressCountry: "FR",
+    },
+    telephone: "+33-6-98-24-86-90",
+    openingHours: "Mo-Su 00:00-23:59",
+  },
+}
 
 export default function Home() {
   return (
-    <main className="text-primary-900">
+    <>
+      <Script
+        id="homepage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageSchema),
+        }}
+      />
+      <main className="text-primary-900">
       <section id="hero-section" className="relative isolate overflow-hidden pt-20 bg-[#F8FAFB]">
         <div className="absolute inset-0">
           <Image
@@ -26,8 +91,8 @@ export default function Home() {
               <Link href="/Catalogue" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]">
                 Voir notre catalogue
               </Link>
-              <Link href="/contact" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-transparent border border-white pl-3 sm:pl-4 pr-4 sm:pr-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white hover:bg-[#F8FAFB]">
-                  <img src="/icons/Phone_white.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Link href="/contact" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-transparent border border-white pl-3 sm:pl-4 pr-4 sm:pr-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white">
+                  <Image src="/icons/Phone_white.svg" alt="Icône téléphone" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5" />
                   Nous contacter
               </Link>
             </div>
@@ -60,28 +125,28 @@ export default function Home() {
 
       <section className="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-5 sm:px-6 lg:px-6 lg:max-w-fit lg:mx-auto py-10 overflow-visible">
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
-          <img src="/icons/Desk.svg" alt="" />
+          <Image src="/icons/Desk.svg" alt="Icône large gamme" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Large gamme</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Bungalow et conteneur pour <br />tout vos besoin</p>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-6 bg- py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
-          <img src="/icons/package.svg" alt="" />
+        <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
+          <Image src="/icons/package.svg" alt="Icône livraison rapide" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Livraison rapide</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Service de livraison dans tout <br />la france</p>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
-          <img src="/icons/Chield.svg" alt="" />
+          <Image src="/icons/Chield.svg" alt="Icône qualité garantie" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
-            <h2 className="inter font-medium text-base text-black">Qualité garentie</h2>
+            <h2 className="inter font-medium text-base text-black">Qualité garantie</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Produit neuf et d'occasion <br />vérifié</p>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
-          <img src="/icons/Time.svg" alt="" />
+          <Image src="/icons/Time.svg" alt="Icône location flexible" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Location flexible</h2>
             <p className="Inter font-light text-xs text-[#727272] text-center">Option de location courte ou <br />longue durée</p>
@@ -91,7 +156,7 @@ export default function Home() {
 
       <section id="catalogue" className="mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-60 pb-24 pt-24 overflow-x-hidden" aria-labelledby="produits">
         <header className="text-center">
-          <h3 className="RedHat uppercase tracking-[0.35em] text-3xl font-semibold text-black">Nos produits</h3>
+          <h2 className="RedHat uppercase tracking-[0.35em] text-3xl font-semibold text-black">Nos produits</h2>
         </header>
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
@@ -116,9 +181,9 @@ export default function Home() {
                 <div className="absolute inset-x-0 bottom-0 px-6 pb-8">
                   <h3 className="RedHat text-2xl font-semibold">{item.title}</h3>
                   <p className="mt-1 text-sm text-neutral-200">{item.description}</p>
-                  <p className="mt-6 inline-flex items-center text-sm font-semibold text-accent-300 transition hover:text-accent-200">
+                  <span className="mt-6 inline-flex items-center text-sm font-semibold text-accent-300 transition hover:text-accent-200">
                     Découvrir →
-                  </p>
+                  </span>
                 </div>
               </Link>
             </article>
@@ -142,7 +207,7 @@ export default function Home() {
               <div className="px-6 py-6 mt-6">
                 <h3 className="Lato text-xl font-semibold text-primary-900">{item.title}</h3>
                 <p className="mt-2 text-sm text-neutral-500">{item.description}</p>
-                <Link href="#contact" className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold  tracking-wide text-white transition hover:bg-primary-800">
+                <Link href="/Catalogue" className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold tracking-wide text-white transition hover:bg-primary-800">
                   Découvrir
                 </Link>
               </div>
@@ -159,8 +224,8 @@ export default function Home() {
             Notre équipe d’experts est à votre disposition pour vous conseiller et vous proposer la solution la mieux adaptée à vos besoins.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link href="#contact" className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-[#FF8905] transition hover:bg-">
-              <img src="/icons/Phone.svg" alt="/contact" />
+            <Link href="/contact" className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-[#FF8905] transition hover:bg-gray-50">
+              <Image src="/icons/Phone.svg" alt="Icône téléphone" width={20} height={20} />
               Nous contacter
             </Link>
             <Link href="/Catalogue" className="Lato inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-base font-bold tracking-wide text-white transition hover:bg-white hover:text-[#FF8905]">
@@ -171,5 +236,6 @@ export default function Home() {
       </section>
       
     </main>
+    </>
   )
 }

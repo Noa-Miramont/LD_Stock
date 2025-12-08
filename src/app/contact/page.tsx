@@ -2,6 +2,7 @@
 
 import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
+import Image from 'next/image'
 import Form from "../../components/ui/Form"
 
 function ContactContent() {
@@ -40,14 +41,14 @@ function ContactContent() {
                     <h3 className="poppins text-lg font-medium ">Information de contact</h3>
                     <div className="space-y-8">
                         <div className="flex flex-row justify-start align-center space-x-3">
-                            <img src="/icons/Phone_black.svg" alt="Phone_icon" />
+                            <Image src="/icons/Phone_black.svg" alt="Icône téléphone" width={24} height={24} />
                             <div className="flex flex-col justify center align-start">
                                 <h5 className="Inter font-xl text-[#727272]">Téléphone</h5>
                                 <p className="Inter font-lg">+33 6 98 24 86 90</p>
                             </div>
                         </div>
                         <div className="flex flex-row justify-start align-center space-x-3">
-                            <img src="/icons/Mail.svg" alt="Mail_icon" />
+                            <Image src="/icons/Mail.svg" alt="Icône email" width={24} height={24} />
                             <div className="flex flex-col justify center align-start">
                                 <h5 className="Inter font-xl text-[#727272]">Email</h5>
                                 <p className="Inter font-lg">ldstock@orange.fr</p>
@@ -56,17 +57,17 @@ function ContactContent() {
                     </div>
                 </div>
                 <div className="flex flex-col justify-start rounded-2xl bg-white shadow-lg py-5 px-5 space-y-7">
-                    <h3 className="poppins text-lg font-medium ">Horraire d'ouverture</h3>
+                    <h3 className="poppins text-lg font-medium ">Horaires d'ouverture</h3>
                     <div className="space-y-8">
                         <div className="flex flex-row justify-start align-center space-x-3">
-                            <img src="/icons/Time_light.svg" alt="Phone_icon" />
+                            <Image src="/icons/Time_light.svg" alt="Icône horaires" width={24} height={24} />
                             <div className="flex flex-col justify center align-start">
-                                <h5 className="Inter font-xl text-[#727272]">Horraire</h5>
+                                <h5 className="Inter font-xl text-[#727272]">Horaires</h5>
                                 <p className="Inter font-lg">24h/24 / 7J/7 sur site</p>
                             </div>
                         </div>
                         <div className="flex flex-row justify-start align-center space-x-3">
-                            <img src="/icons/location.svg" alt="Phone_icon" />
+                            <Image src="/icons/location.svg" alt="Icône localisation" width={24} height={24} />
                             <div className="flex flex-col justify center align-start">
                                 <h5 className="Inter font-xl text-[#727272]">Adresse du site</h5>
                                 <p className="Inter font-lg">602 route des Palombes 33141, Villegouge</p>

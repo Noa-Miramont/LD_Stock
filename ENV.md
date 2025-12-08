@@ -35,6 +35,21 @@ Ces variables améliorent les emails envoyés mais ne sont pas obligatoires.
 - **COMPANY_EMAIL** : Email de contact de l'entreprise (affiché dans les emails)
   - Exemple: `contact@votreentreprise.com`
 
+### Configuration SEO et Analytics
+
+Ces variables sont utilisées pour optimiser le référencement et le tracking.
+
+- **NEXT_PUBLIC_SITE_URL** : URL complète de votre site web
+  - Exemple: `https://ldstock.fr` ou `https://votre-projet.vercel.app`
+  - Utilisée pour les métadonnées Open Graph, le sitemap, et les données structurées
+  - ⚠️ **IMPORTANT** : Ajoutez le protocole `https://` ou `http://` selon votre environnement
+
+- **NEXT_PUBLIC_GA_ID** : ID de suivi Google Analytics (optionnel)
+  - Exemple: `G-XXXXXXXXXX`
+  - Format: `G-` suivi de 10 caractères alphanumériques
+  - Si non défini, Google Analytics ne sera pas chargé
+  - Pour obtenir un ID : https://analytics.google.com/
+
 ## Configuration sur Vercel
 
 1. Allez dans votre projet sur Vercel
