@@ -100,7 +100,7 @@ function CatalogueContent() {
   // Fonction pour formater le prix de location
   const formatRentalPrice = (price: number | null): string | null => {
     if (price === null) return null
-    return `${price}€ HT/mois`
+    return `${price}€ TTC/mois`
   }
 
   // Filtrer les containers selon les sélections
