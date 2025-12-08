@@ -2,17 +2,21 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Produit",
-  description: "Découvrez les détails de nos conteneurs maritimes et bungalows. Dimensions, caractéristiques, tarifs de vente et location. Demandez un devis personnalisé pour votre projet.",
+  description: "Découvrez les détails de nos conteneurs maritimes et bungalows à Bordeaux et en Aquitaine. Dimensions, caractéristiques, tarifs de vente et location. Location conteneur Bordeaux, achat conteneur Bordeaux. Demandez un devis personnalisé pour votre projet.",
   keywords: [
     "conteneur détail",
     "bungalow détail",
     "caractéristiques conteneur",
     "tarif conteneur",
     "prix conteneur",
+    "location conteneur Bordeaux",
+    "achat conteneur Bordeaux",
+    "conteneur Bordeaux",
+    "conteneur Aquitaine",
   ],
   openGraph: {
     title: "Produit - LD Stock | Conteneurs et Bungalows",
-    description: "Découvrez les détails de nos conteneurs maritimes et bungalows. Dimensions, caractéristiques, tarifs de vente et location.",
+    description: "Découvrez les détails de nos conteneurs maritimes et bungalows à Bordeaux et en Aquitaine. Location conteneur Bordeaux, achat conteneur Bordeaux. Dimensions, caractéristiques, tarifs de vente et location.",
     images: [
       {
         url: "/img/Container_mockup.png",
@@ -25,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Produit - LD Stock | Conteneurs et Bungalows",
-    description: "Découvrez les détails de nos conteneurs maritimes et bungalows.",
+    description: "Découvrez les détails de nos conteneurs maritimes et bungalows à Bordeaux et en Aquitaine.",
     images: ["/img/Container_mockup.png"],
   },
 }

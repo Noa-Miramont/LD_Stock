@@ -4,6 +4,7 @@ import Script from "next/script"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import SmoothScroll from "../components/SmoothScroll"
+import SecurityNotice from "../components/SecurityNotice"
 import "./globals.css"
 
 const inter = Inter({
@@ -39,7 +40,7 @@ const poppins = Poppins({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ldstock.fr"
 const siteName = "LD Stock - Conteneurs et Bungalows"
-const defaultDescription = "Vente et location de conteneurs maritimes et bungalows en France. Solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France."
+const defaultDescription = "Vente et location de conteneurs maritimes et bungalows à Bordeaux et en Aquitaine. Solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,6 +53,10 @@ export const metadata: Metadata = {
     "conteneur maritime",
     "conteneur vente",
     "conteneur location",
+    "location conteneur Bordeaux",
+    "achat conteneur Bordeaux",
+    "conteneur Bordeaux",
+    "conteneur Aquitaine",
     "bungalow",
     "bungalow chantier",
     "stockage modulaire",
@@ -138,6 +143,7 @@ const organizationSchema = {
     "@type": "PostalAddress",
     streetAddress: "602 route des Palombes",
     addressLocality: "Villegouge",
+    addressRegion: "Aquitaine",
     postalCode: "33141",
     addressCountry: "FR",
   },
@@ -186,6 +192,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Header/>
           {children}
+          <SecurityNotice/>
           <Footer/>
         </SmoothScroll>
       </body>

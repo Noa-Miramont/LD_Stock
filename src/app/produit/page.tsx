@@ -130,7 +130,7 @@ function ProduitContent() {
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-[24px] md:rounded-[28px] overflow-hidden bg-neutral-200">
             <Image
               src={container.image}
-              alt={formatTitle()}
+              alt={`${formatTitle()} - Location et achat à Bordeaux, Aquitaine`}
               fill
               className="object-cover"
               priority

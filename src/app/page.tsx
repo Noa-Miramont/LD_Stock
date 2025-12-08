@@ -5,9 +5,13 @@ import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Accueil",
-  description: "LD Stock, votre partenaire en conteneurs maritimes et bungalows. Vente et location de solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France. Plus de 5 ans d'expérience, 500+ clients satisfaits.",
+  description: "LD Stock, votre partenaire en conteneurs maritimes et bungalows à Bordeaux et en Aquitaine. Vente et location de solutions modulaires pour professionnels et particuliers. Location conteneur Bordeaux, achat conteneur Bordeaux. Stock permanent, livraison rapide dans toute la France. Plus de 5 ans d'expérience, 500+ clients satisfaits.",
   keywords: [
     "conteneur maritime",
+    "location conteneur Bordeaux",
+    "achat conteneur Bordeaux",
+    "conteneur Bordeaux",
+    "conteneur Aquitaine",
     "bungalow",
     "conteneur vente",
     "conteneur location",
@@ -17,7 +21,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "LD Stock - Votre partenaire en conteneurs et bungalows",
-    description: "Vente et location de conteneurs maritimes et bungalows. Solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France.",
+    description: "Vente et location de conteneurs maritimes et bungalows à Bordeaux et en Aquitaine. Location conteneur Bordeaux, achat conteneur Bordeaux. Solutions modulaires pour professionnels et particuliers. Stock permanent, livraison rapide dans toute la France.",
     images: [
       {
         url: "/img/Main_bg_image.png",
@@ -30,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "LD Stock - Votre partenaire en conteneurs et bungalows",
-    description: "Vente et location de conteneurs maritimes et bungalows. Solutions modulaires pour professionnels et particuliers.",
+    description: "Vente et location de conteneurs maritimes et bungalows à Bordeaux et en Aquitaine. Location conteneur Bordeaux, achat conteneur Bordeaux.",
     images: ["/img/Main_bg_image.png"],
   },
 }
@@ -39,7 +43,7 @@ const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "LD Stock - Conteneurs et Bungalows",
-  description: "Vente et location de conteneurs maritimes et bungalows en France",
+  description: "Vente et location de conteneurs maritimes et bungalows à Bordeaux et en Aquitaine",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ldstock.fr",
   mainEntity: {
     "@type": "LocalBusiness",
@@ -50,6 +54,7 @@ const homepageSchema = {
       "@type": "PostalAddress",
       streetAddress: "602 route des Palombes",
       addressLocality: "Villegouge",
+      addressRegion: "Aquitaine",
       postalCode: "33141",
       addressCountry: "FR",
     },
@@ -73,7 +78,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="/img/Main_bg_image.png"
-            alt="Parc de conteneurs industriels"
+            alt="Parc de conteneurs maritimes à Bordeaux, Aquitaine - LD Stock"
             fill
             className="object-cover"
             priority
@@ -82,10 +87,10 @@ export default function Home() {
         <div className="relative flex flex-col justify-center items-between xl:flex-row gap-6 px-4 sm:px-10 md:px-14 lg:px-18 pb-24 pt-18">
           <div className="max-w-2xl text-white">
             <h1 className="RedHat uppercase mt-6 text-4xl sm:text-6xl font-black leading-tight lg:text-6xl xl:text-6xl">
-              Votre partenaire en <span className="text-[#FF8905]">conteneurs</span> et <span className="text-[#FF8905]">bungalows</span>
+              Votre partenaire en <span className="text-[#FF8905]">conteneurs</span> et <span className="text-[#FF8905]">bungalows</span> à <span className="text-[#FF8905]">Bordeaux</span>
             </h1>
             <p className="RedHat mt-5 text-xs sm:text-sm font-light">
-              Vente et location de solutions modulaires pour professionnels et particuliers.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
+              Location et achat de conteneurs maritimes à Bordeaux et en Aquitaine. Solutions modulaires pour professionnels et particuliers.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="/Catalogue" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]">
@@ -114,7 +119,7 @@ export default function Home() {
           <div className="relative h-145 w-full overflow-hidden rounded-[32px] hidden xl:block">
             <Image
               src="/img/conteneurs.png"
-              alt="Conteneurs orange empilés"
+              alt="Conteneurs maritimes orange empilés - Location et achat à Bordeaux"
               fill
               className="object-cover h-[0px] w-[0px] sm:h-full sm:w-full"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -135,7 +140,7 @@ export default function Home() {
           <Image src="/icons/package.svg" alt="Icône livraison rapide" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Livraison rapide</h2>
-            <p className="Inter font-light text-xs text-[#727272] text-center">Service de livraison dans tout <br />la france</p>
+            <p className="Inter font-light text-xs text-[#727272] text-center">Service de livraison dans tout <br />la France et en Aquitaine</p>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
@@ -161,15 +166,15 @@ export default function Home() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
             {[
-            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"/Catalogue?type=conteneur"},
-            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/Bungalow_sombre.jpg", link:"/Catalogue?type=bungalow" },
-            { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact" },
+            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"/Catalogue?type=conteneur", alt:"Location et achat de conteneurs maritimes à Bordeaux, Aquitaine"},
+            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/Bungalow_sombre.jpg", link:"/Catalogue?type=bungalow", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
+            { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact", alt:"Solutions sur mesure pour conteneurs à Bordeaux" },
           ].map(item => (
             <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer">
               <Link href={item.link}>
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt || item.title}
                   width={680}
                   height={520}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
@@ -194,14 +199,14 @@ export default function Home() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {[
-            { title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/Container_mockup.png" },
-            { title: "Bungalow", description: "Bungalow de chantier, bureaux modulaires et cabines sanitaires", image: "/img/Bungalow_mockup.png" },
+            { title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/Container_mockup.png", alt:"Conteneurs maritimes disponibles à Bordeaux et en Aquitaine" },
+            { title: "Bungalow", description: "Bungalow de chantier, bureaux modulaires et cabines sanitaires", image: "/img/Bungalow_mockup.png", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
           ].map(item => (
             <article key={item.title} className="flex flex-col overflow-hidden rounded-[28px] bg-white shadow-lg">
               <div className="relative h-80 w-full bg-neutral-200 overflow-hidden">
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt || item.title}
                   fill
                   className="object-cover"
                 />

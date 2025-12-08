@@ -28,7 +28,7 @@ function ContactContent() {
         <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
             <header className="flex flex-col justify-start gap-5">
                 <h1 className="RedHat font-bold text-3xl sm:text-4xl md:text-5xl uppercase">Contactez-nous</h1>
-                <p className="Inter text-base text-[#727272]">Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans votre projet</p>
+                <p className="Inter text-base text-[#727272]">Notre équipe à Bordeaux est à votre disposition pour répondre à toutes vos questions sur la location et l'achat de conteneurs maritimes en Aquitaine. Contactez-nous pour votre projet.</p>
            </header>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-15 w-full">
@@ -70,7 +70,7 @@ function ContactContent() {
                             <Image src="/icons/location.svg" alt="Icône localisation" width={24} height={24} />
                             <div className="flex flex-col justify center align-start">
                                 <h5 className="Inter font-xl text-[#727272]">Adresse du site</h5>
-                                <p className="Inter font-lg">602 route des Palombes 33141, Villegouge</p>
+                                <p className="Inter font-lg">602 route des Palombes 33141, Villegouge, près de Bordeaux, Aquitaine</p>
                             </div>
                         </div>
                     </div>

@@ -65,7 +65,8 @@ export default function Footer() {
                             <li>24h/24 et 7j/7 sur site</li>
                             <li>
                                 602 route des Palombes<br />
-                                33141 Villegouge
+                                33141 Villegouge, près de Bordeaux<br />
+                                Aquitaine
                             </li>
                         </ul>
                     </div>
