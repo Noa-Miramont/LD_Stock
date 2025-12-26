@@ -1,0 +1,8 @@
+Model Information:
+* title:	Game ready prop container
+* source:	https://sketchfab.com/3d-models/game-ready-prop-container-1ac4ef9238f14f66b6644e52a6f00e66
+* author:	Filipe Be Fx (https://sketchfab.com/joaoribeiro)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

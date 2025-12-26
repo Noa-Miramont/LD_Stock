@@ -1,0 +1,11 @@
+Model Information:
+* title:	LoPoly PS1 Shipping Container
+* source:	https://sketchfab.com/3d-models/lopoly-ps1-shipping-container-2170960a2133433d96d4dd6617e94c70
+* author:	BitHack (https://sketchfab.com/bithack)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "LoPoly PS1 Shipping Container" (https://sketchfab.com/3d-models/lopoly-ps1-shipping-container-2170960a2133433d96d4dd6617e94c70) by BitHack (https://sketchfab.com/bithack) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

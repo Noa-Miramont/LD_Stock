@@ -59,7 +59,7 @@ export default function SecurityNotice() {
         <div className="flex items-center justify-between bg-[#0b1120] px-4 py-3 text-white">
           <div className="flex items-center gap-2">
             <ShieldIcon />
-            <p className="text-sm font-semibold">Information officielle</p>
+            <p className="text-sm font-semibold">Ateention</p>
           </div>
           <button
             type="button"

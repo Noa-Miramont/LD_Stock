@@ -106,7 +106,15 @@ function CatalogueContent() {
   // Filtrer les containers selon les sélections
   const filteredContainers = containers.filter((container) => {
     const typeMatch = selectedType === 'tous' || container.type === selectedType
-    const stateMatch = selectedState === 'tout' || container.state === selectedState
+    let stateMatch = false
+    if (selectedState === 'tout') {
+      stateMatch = true
+    } else if (selectedState === 'neuf') {
+      // Inclure les conteneurs neufs ET premier voyage
+      stateMatch = container.state === 'neuf' || container.state === 'premier-voyage'
+    } else {
+      stateMatch = container.state === selectedState
+    }
     return typeMatch && stateMatch
   })
 

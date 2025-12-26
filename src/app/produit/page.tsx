@@ -5,6 +5,7 @@ import { useEffect, useState, Suspense } from 'react'
 import Image from 'next/image'
 import { getContainerById } from '@/data/containers'
 import { Container } from '@/types/container'
+import ContainerScene from '@/components/ContainerScene'
 
 type PurchaseType = 'achat' | 'location' | ''
 type DeliveryType = 'domicile' | 'site' | ''
@@ -125,16 +126,10 @@ function ProduitContent() {
   return (
     <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 bg-neutral-100 min-h-screen">
       <section className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto">
-        {/* Image à gauche */}
+        {/* Scène 3D à gauche */}
         <div className="w-full lg:w-1/2">
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-[24px] md:rounded-[28px] overflow-hidden bg-neutral-200">
-            <Image
-              src={container.image}
-              alt={`${formatTitle()} - Location et achat à Bordeaux, Aquitaine`}
-              fill
-              className="object-cover"
-              priority
-            />
+            <ContainerScene containerSize={container.size} />
           </div>
         </div>
 
