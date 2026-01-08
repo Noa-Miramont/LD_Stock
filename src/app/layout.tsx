@@ -158,6 +158,15 @@ export default function RootLayout({
   return (
     <html lang="fr" className="overflow-x-hidden">
       <head>
+        {/* Preconnect pour optimiser le chargement des ressources externes */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          </>
+        )}
         <Script
           id="organization-schema"
           type="application/ld+json"

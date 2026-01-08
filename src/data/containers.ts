@@ -263,8 +263,8 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '20 pieds',
     state: 'premier-voyage',
-    description: 'Conteneur maritime 20 pieds premier voyage offrant une qualité proche du neuf. Fiable et étanche, il constitue une solution idéale pour le stockage longue durée ou la transformation.',
-    littleDescription: 'Conteneur 20 pieds premier voyage, état quasi neuf.',
+    description: 'Conteneur maritime 20 pieds premier voyage neuf. Fiable et étanche, il constitue une solution idéale pour le stockage longue durée ou la transformation.',
+    littleDescription: 'Conteneur 20 pieds premier voyage, neuf.',
     image: '/img/Container_mockup.png',
     dimensions: {
       length: 6.05,
@@ -327,8 +327,8 @@ export const containers: Container[] = [
     type: 'conteneur',
     size: '40 pieds',
     state: 'premier-voyage',
-    description: 'Conteneur maritime 40 pieds premier voyage, offrant un état impeccable et une grande durabilité. Parfait pour les projets nécessitant un grand volume ou une transformation en module.',
-    littleDescription: 'Conteneur 40 pieds premier voyage, état premium.',
+    description: 'Conteneur maritime 40 pieds premier voyage, offrant un état neuf et une grande durabilité. Parfait pour les projets nécessitant un grand volume ou une transformation en module.',
+    littleDescription: 'Conteneur 40 pieds premier voyage, état neuf.',
     image: '/img/Container_mockup.png',
     dimensions: {
       length: 12.19,

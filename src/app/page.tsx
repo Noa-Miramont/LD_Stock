@@ -82,6 +82,7 @@ export default function Home() {
             fill
             className="object-cover"
             priority
+            fetchPriority="high"
           />
         </div>
         <div className="relative flex flex-col justify-center items-between xl:flex-row gap-6 px-4 sm:px-10 md:px-14 lg:px-18 pb-24 pt-18">
