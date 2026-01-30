@@ -90,7 +90,7 @@ export default function Home() {
             <h1 className="RedHat uppercase mt-6 text-4xl sm:text-6xl font-black leading-tight lg:text-6xl xl:text-6xl">
               Votre partenaire en <span className="text-[#FF8905]">conteneurs</span> et <span className="text-[#FF8905]">bungalows</span> à <span className="text-[#FF8905]">Bordeaux</span>
             </h1>
-            <p className="RedHat mt-5 text-xs sm:text-sm font-light">
+            <p className="RedHat mt-5 text-sm sm:text-base font-light">
               Location et achat de conteneurs maritimes à Bordeaux et en Aquitaine. Solutions modulaires pour professionnels et particuliers.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:flex-row">

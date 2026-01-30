@@ -34,7 +34,7 @@ function getPersonOffset(size: string): number {
   const sizeNumber = parseInt(size.replace(' pieds', ''))
   
   if (sizeNumber >= 40) {
-    return 4
+    return 3
   } else if (sizeNumber >= 20) {
     return 3
   } else if (sizeNumber >= 15) {
@@ -123,9 +123,13 @@ function ContainerModel({ size }: { size: string }) {
   
   // Calculer la largeur du conteneur pour positionner le personnage
   const containerWidth = sizeVec.x
-  
-  // Positionner le personnage à côté du conteneur (à droite) - plus proche
-  const personOffset = containerWidth / 1.5
+  const sizeNumber = parseInt(size.replace(' pieds', ''))
+
+  // Pour 15, 20 et 40 pieds le personnage doit être plus proche (offset fixe)
+  // Pour les autres tailles, on garde la position basée sur la largeur
+  const personOffset = (sizeNumber === 15 || sizeNumber === 20 || sizeNumber === 40)
+    ? getPersonOffset(size)
+    : containerWidth / 1
   
   // Positionner le conteneur centré sur le sol
   const containerY = -center.y + sizeVec.y / 2
@@ -216,10 +220,12 @@ function SceneContent({ containerSize }: { containerSize: string }) {
 
 // Composant principal exporté
 export default function ContainerScene({ containerSize }: { containerSize: string }) {
+  const is40Foot = containerSize.includes('40')
+  const cameraPosition: [number, number, number] = is40Foot ? [7.5, 10, 7.5] : [6, 8, 6]
   return (
     <div className="w-full h-full">
       <Canvas
-        camera={{ position: [6, 8, 6], fov: 50 }}
+        camera={{ position: cameraPosition, fov: 50 }}
         shadows
         gl={{ antialias: true }}
       >
