@@ -193,6 +193,7 @@ function PersonModel({ offset }: { offset: number }) {
 function SceneContent({ containerSize }: { containerSize: string }) {
   return (
     <>
+      <color attach="background" args={['#E3E3E3']} />
       {/* Éclairage */}
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
@@ -223,11 +224,11 @@ export default function ContainerScene({ containerSize }: { containerSize: strin
   const is40Foot = containerSize.includes('40')
   const cameraPosition: [number, number, number] = is40Foot ? [7.5, 10, 7.5] : [6, 8, 6]
   return (
-    <div className="w-full h-full">
+    <div className="absolute inset-0 w-full h-full">
       <Canvas
         camera={{ position: cameraPosition, fov: 50 }}
         shadows
-        gl={{ antialias: true }}
+        gl={{ antialias: true, alpha: false }}
       >
         <Suspense fallback={null}>
           <SceneContent containerSize={containerSize} />

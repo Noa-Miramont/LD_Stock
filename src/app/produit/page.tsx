@@ -1,11 +1,21 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import { useEffect, useState, Suspense } from 'react'
 import Image from 'next/image'
 import { getContainerById } from '@/data/containers'
 import { Container } from '@/types/container'
-import ContainerScene from '@/components/ContainerScene'
+
+const ContainerScene = dynamic(
+  () => import('@/components/ContainerScene').then((m) => m.default),
+  { ssr: false, loading: () => <div className="absolute inset-0 flex items-center justify-center bg-neutral-200 text-neutral-500">Chargement 3D...</div> }
+)
+
+const BungalowScene = dynamic(
+  () => import('@/components/BungalowScene').then((m) => m.default),
+  { ssr: false, loading: () => <div className="absolute inset-0 flex items-center justify-center bg-neutral-200 text-neutral-500">Chargement 3D...</div> }
+)
 
 type PurchaseType = 'achat' | 'location' | ''
 type DeliveryType = 'domicile' | 'site' | ''
@@ -129,7 +139,11 @@ function ProduitContent() {
         {/* Scène 3D à gauche */}
         <div className="w-full lg:w-1/2">
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-[24px] md:rounded-[28px] overflow-hidden bg-neutral-200">
-            <ContainerScene containerSize={container.size} />
+            {container.type === 'bungalow' ? (
+              <BungalowScene />
+            ) : (
+              <ContainerScene containerSize={container.size} />
+            )}
           </div>
         </div>
 

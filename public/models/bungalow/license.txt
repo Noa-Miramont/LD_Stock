@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tiny house - prefab steel framing
+* source:	https://sketchfab.com/3d-models/tiny-house-prefab-steel-framing-756a642d34d84c16b47bfebd30c6bb73
+* author:	MyStudioNZ (https://sketchfab.com/erickjw85)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tiny house - prefab steel framing" (https://sketchfab.com/3d-models/tiny-house-prefab-steel-framing-756a642d34d84c16b47bfebd30c6bb73) by MyStudioNZ (https://sketchfab.com/erickjw85) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
