@@ -76,7 +76,7 @@ export default function SecurityNotice() {
             ldstock.fr est le seul site officiel de notre entreprise.
           </p>
           <p className="leading-relaxed text-slate-700">
-            LD Stock ne vous demandera jamais de payer en ligne quelque service.
+            LD Stock ne vous demandera jamais de payer en ligne pour quelque service que ce soit.
           </p>
           <button
             type="button"
