@@ -200,8 +200,8 @@ export default function Home() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {[
-            { title: "Conteneurs maritimes ou de stockage", description: "De 6 à 40 pieds, neufs ou d'occasions", image: "/img/Container_mockup.png", alt:"Conteneurs maritimes disponibles à Bordeaux et en Aquitaine" },
-            { title: "Bungalows", description: "Bungalows de chantier, bureaux modulaires et cabines sanitaires", image: "/img/Bungalow_mockup.png", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
+            { title: "Conteneurs maritimes ou de stockage", description: "De 6 à 40 pieds, neufs ou d'occasions", image: "/img/Container_mockup.png", alt:"Conteneurs maritimes disponibles à Bordeaux et en Aquitaine", link: "/Catalogue?type=conteneur" },
+            { title: "Bungalows", description: "Bungalows de chantier, bureaux modulaires et cabines sanitaires", image: "/img/Bungalow_mockup.png", alt:"Bungalows modulaires à Bordeaux et en Aquitaine", link: "/Catalogue?type=bungalow" },
           ].map(item => (
             <article key={item.title} className="flex flex-col overflow-hidden rounded-[28px] bg-white shadow-lg">
               <div className="relative h-80 w-full bg-neutral-200 overflow-hidden">
@@ -215,7 +215,7 @@ export default function Home() {
               <div className="px-6 py-6 mt-6">
                 <h3 className="Lato text-xl font-semibold text-primary-900">{item.title}</h3>
                 <p className="mt-2 text-sm text-neutral-500">{item.description}</p>
-                <Link href="/Catalogue" className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold tracking-wide text-white transition hover:bg-primary-800">
+                <Link href={item.link} className="mt-5 inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold tracking-wide text-white transition hover:bg-primary-800">
                   Découvrir
                 </Link>
               </div>
