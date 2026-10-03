@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# docs locales, hors dépôt
+/AGENTS.md
+/CLAUDE.md
+/DEPLOY.md
+/ENV.md
+/FAVICON_INSTRUCTIONS.md
