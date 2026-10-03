@@ -12,9 +12,9 @@ const ContainerScene = dynamic(
   { ssr: false, loading: () => <div className="absolute inset-0 flex items-center justify-center bg-neutral-200 text-neutral-500">Chargement 3D...</div> }
 )
 
-const BungalowScene = dynamic(
-  () => import('@/components/BungalowScene').then((m) => m.default),
-  { ssr: false, loading: () => <div className="absolute inset-0 flex items-center justify-center bg-neutral-200 text-neutral-500">Chargement 3D...</div> }
+const BungalowGallery = dynamic(
+  () => import('@/components/BungalowGallery').then((m) => m.default),
+  { ssr: false, loading: () => <div className="absolute inset-0 flex items-center justify-center bg-neutral-200 text-neutral-500">Chargement...</div> }
 )
 
 type PurchaseType = 'achat' | 'location' | ''
@@ -43,6 +43,10 @@ function ProduitContent() {
     )
   }
 
+  const formatMeters = (value: number): string => {
+    return Number.isInteger(value) ? String(value) : value.toFixed(2)
+  }
+
   // Fonction pour formater le titre
   const formatTitle = (): string => {
     const stateLabels: Record<string, string> = {
@@ -52,7 +56,7 @@ function ProduitContent() {
     }
     
     if (container.type === 'bungalow') {
-      return `Bungalow ${stateLabels[container.state] || container.state}`
+      return `Bungalow ${stateLabels[container.state] || container.state} ${formatMeters(container.dimensions.length)}m x ${formatMeters(container.dimensions.width)}m`
     }
     
     return `Conteneur Maritime ${container.size}`
@@ -80,6 +84,9 @@ function ProduitContent() {
 
   // Fonction pour formater les dimensions
   const formatDimensions = (): string => {
+    if (container.type === 'bungalow') {
+      return `${formatMeters(container.dimensions.length)}m x ${formatMeters(container.dimensions.width)}m`
+    }
     return `${container.dimensions.length}m x ${container.dimensions.width}m x ${container.dimensions.height}m`
   }
 
@@ -91,7 +98,7 @@ function ProduitContent() {
     container.characteristic.fourth,
     container.characteristic.fifth,
     container.characteristic.sixth,
-  ]
+  ].filter((item): item is string => Boolean(item))
 
   // Fonction pour gérer le clic sur "Demander un devis"
   const handleRequestQuote = () => {
@@ -140,7 +147,10 @@ function ProduitContent() {
         <div className="w-full lg:w-1/2">
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-[24px] md:rounded-[28px] overflow-hidden bg-neutral-200">
             {container.type === 'bungalow' ? (
-              <BungalowScene />
+              <BungalowGallery
+                key={container.id}
+                variant={container.id === 'bungalow-occasion-6x300' ? 'occasion' : 'neuf'}
+              />
             ) : (
               <ContainerScene containerSize={container.size} />
             )}
@@ -177,7 +187,9 @@ function ProduitContent() {
               <div className="flex-1 bg-white rounded-lg border border-[#E5E5E5] p-4 sm:p-5">
                 <p className="Inter text-xs sm:text-sm font-medium text-[#727272] mb-2">Vente</p>
                 <p className="Inter text-xl sm:text-2xl font-medium text-black">
-                  {formatPrice(container.purchasePrice)}€
+                  {container.type === 'bungalow'
+                    ? `À partir de ${formatPrice(container.purchasePrice)} € HT`
+                    : `${formatPrice(container.purchasePrice)}€`}
                 </p>
               </div>
               

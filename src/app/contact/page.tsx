@@ -28,7 +28,7 @@ function ContactContent() {
         <main className="pt-30 px-4 sm:px-6 md:px-10 lg:px-20 bg-neutral-100 min-h-screen space-y-16 overflow-x-hidden">
             <header className="flex flex-col justify-start gap-5">
                 <h1 className="RedHat font-bold text-3xl sm:text-4xl md:text-5xl uppercase">Contactez-nous</h1>
-                <p className="Inter text-base text-[#727272]">Notre équipe à Bordeaux est à votre disposition pour répondre à toutes vos questions sur la location et l'achat de conteneurs maritimes en Aquitaine. Contactez-nous pour votre projet.</p>
+                <p className="Inter text-base text-[#727272]">Notre équipe près de Bordeaux est à votre disposition pour répondre à toute vos questions sur l'achat de conteneurs ou de bungalows ou la location de conteneurs partout en France. Décrivez-nous votre projet.</p>
            </header>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-15 w-full">

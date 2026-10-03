@@ -14,8 +14,8 @@ export interface characteristic {
   second: string,
   third: string,
   fourth: string,
-  fifth: string,
-  sixth: string,
+  fifth?: string,
+  sixth?: string,
 }
 
 export interface DeliveryOptions {

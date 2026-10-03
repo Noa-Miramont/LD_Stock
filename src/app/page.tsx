@@ -91,7 +91,7 @@ export default function Home() {
               Votre partenaire en <span className="text-[#FF8905]">conteneurs</span> et <span className="text-[#FF8905]">bungalows</span> à <span className="text-[#FF8905]">Bordeaux</span>
             </h1>
             <p className="RedHat mt-5 text-sm sm:text-base font-light">
-              Location et achat de conteneurs maritimes à Bordeaux et en Aquitaine. Solutions modulaires pour professionnels et particuliers.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
+              Vente de bungalows et conteneurs neufs ou d'occasion partout en France et location de conteneurs sur notre parc près de Bordeaux ou à votre domicile partout en France.<br className="hidden sm:block" />Stock permanent, livraison rapide dans toute la France.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="/Catalogue" className="Lato inline-flex items-center justify-center gap-2 sm:gap-3 rounded-xl bg-[#FF8905] px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-bold tracking-wide text-white transition hover:bg-[#e67804]">
@@ -134,21 +134,21 @@ export default function Home() {
           <Image src="/icons/Desk.svg" alt="Icône large gamme" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Large gamme</h2>
-            <p className="Inter font-light text-xs text-[#727272] text-center">Bungalow et conteneur pour <br />tout vos besoin</p>
+            <p className="Inter font-light text-xs text-[#727272] text-center">Bungalows et conteneurs pour <br />tout vos besoins</p>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
           <Image src="/icons/package.svg" alt="Icône livraison rapide" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Livraison rapide</h2>
-            <p className="Inter font-light text-xs text-[#727272] text-center">Service de livraison dans tout <br />la France et en Aquitaine</p>
+            <p className="Inter font-light text-xs text-[#727272] text-center">Service de livraison dans toute <br />la France</p>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
           <Image src="/icons/Chield.svg" alt="Icône qualité garantie" width={48} height={48} />
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="inter font-medium text-base text-black">Qualité garantie</h2>
-            <p className="Inter font-light text-xs text-[#727272] text-center">Produit neuf et d'occasion <br />vérifié</p>
+            <p className="Inter font-light text-xs text-[#727272] text-center">Produits neufs et d'occasions <br />vérifiés</p>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 bg-white py-8 px-8 [1340px]:px-16 h-min rounded-2xl shadow-xl">
@@ -167,9 +167,9 @@ export default function Home() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
             {[
-            { label: "À partir de 1250€", title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/conteneur_sombre.png", link:"/Catalogue?type=conteneur", alt:"Location et achat de conteneurs maritimes à Bordeaux, Aquitaine"},
-            { label: "À partir de 3000€", title: "Bungalow", description: "Entièrement modulable", image: "/img/Bungalow_sombre.jpg", link:"/Catalogue?type=bungalow", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
-            { label: "Sur devis", title: "Solution sur mesure", description: "Envoyer nous un message et Détaillé nous votre demande", image: "/img/Sur_mesure.png", link:"/contact", alt:"Solutions sur mesure pour conteneurs à Bordeaux" },
+            { label: "À partir de 1 250 € HT", title: "Conteneurs maritimes ou de stockage", description: "De 6 à 40 pieds, neufs ou d'occasions", image: "/img/conteneur_sombre.png", link:"/Catalogue?type=conteneur", alt:"Location et achat de conteneurs maritimes à Bordeaux, Aquitaine"},
+            { label: "À partir de 3 500 € HT", title: "Bungalows", description: "Entièrement modulables", image: "/img/Bungalow_sombre.jpg", link:"/Catalogue?type=bungalow", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
+            { label: "Sur devis", title: "Solutions sur mesure", description: "Contactez-nous et décrivez-nous votre projet", image: "/img/Sur_mesure.png", link:"/contact", alt:"Solutions sur mesure pour conteneurs à Bordeaux" },
           ].map(item => (
             <article key={item.title} className="group relative overflow-hidden rounded-[28px] bg-primary-950 text-white shadow-lg cursor-pointer">
               <Link href={item.link}>
@@ -200,8 +200,8 @@ export default function Home() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {[
-            { title: "Conteneurs maritimes", description: "De 10 à 40 pieds, neuf ou d'occasion", image: "/img/Container_mockup.png", alt:"Conteneurs maritimes disponibles à Bordeaux et en Aquitaine" },
-            { title: "Bungalow", description: "Bungalow de chantier, bureaux modulaires et cabines sanitaires", image: "/img/Bungalow_mockup.png", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
+            { title: "Conteneurs maritimes ou de stockage", description: "De 6 à 40 pieds, neufs ou d'occasions", image: "/img/Container_mockup.png", alt:"Conteneurs maritimes disponibles à Bordeaux et en Aquitaine" },
+            { title: "Bungalows", description: "Bungalows de chantier, bureaux modulaires et cabines sanitaires", image: "/img/Bungalow_mockup.png", alt:"Bungalows modulaires à Bordeaux et en Aquitaine" },
           ].map(item => (
             <article key={item.title} className="flex flex-col overflow-hidden rounded-[28px] bg-white shadow-lg">
               <div className="relative h-80 w-full bg-neutral-200 overflow-hidden">
@@ -229,7 +229,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 py-25 px-4 sm:px-6 md:px-12 text-center">
           <h2 id="cta-title" className="RedHat text-[6vw] sm:text-5xl font-bold uppercase text-white">Un projet en tête ?</h2>
           <p className="max-w-2xl text-sm sm:text-base text-white">
-            Notre équipe d’experts est à votre disposition pour vous conseiller et vous proposer la solution la mieux adaptée à vos besoins.
+            Notre équipe d'experts est à votre disposition pour vous conseiller et vous proposer les solutions les mieux adaptées à vos besoins.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link href="/contact" className="Lato inline-flex items-center justify-center gap-3 rounded-xl bg-white pl-4 pr-6 py-3 text-base font-bold tracking-wide text-[#FF8905] transition hover:bg-gray-50">

@@ -18,6 +18,17 @@ interface ProductCardProps {
     }
 }
 
+function formatMeters(value: number) {
+    return Number.isInteger(value) ? String(value) : value.toFixed(2)
+}
+
+function formatDimensions(productType: string, dimensions: ProductCardProps["dimensions"]) {
+    if (productType === "bungalow") {
+        return `${formatMeters(dimensions.length)}m x ${formatMeters(dimensions.width)}m`
+    }
+    return `${dimensions.length}m x ${dimensions.width}m x ${dimensions.height}m`
+}
+
 export default function ProductCard({
     id,
     image,
@@ -47,13 +58,13 @@ export default function ProductCard({
             <div className="mt-3 min-h-[3rem]">
                 <p className="text-sm text-neutral-500">{littleDescription}</p>
             </div>
-            <p className="mt-2 text-sm text-neutral-500">{dimensions.length}m x {dimensions.width}m x {dimensions.height}m</p>
+            <p className="mt-2 text-sm text-neutral-500">{formatDimensions(productType, dimensions)}</p>
             <h3 className="flex flex-col gap-1 mt-5 min-h-[4rem]">
                 <span className="Inter text-xl">A partir de <span className="font-medium">{price}</span></span>
                 {rentalPrice !== null && rentalPrice !== '' ? (
                     <span className="Inter text-lg text-[#727272]">Location: <span className="font-medium">{rentalPrice}</span></span>
                 ) : (
-                    <span className="Inter text-lg text-transparent">Location: </span>
+                    <span className="Inter text-lg text-transparent" aria-hidden="true">Location: </span>
                 )}
             </h3>
             <Link href={`/produit?id=${id}`} className="flex justify-center items-center  mt-auto border border-[#E5E5E5] rounded-lg bg-white py-2 text-md font-semibold text-black tracking-wide transition hover:bg-black hover:text-white">
